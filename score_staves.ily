@@ -312,10 +312,20 @@ scorePercussionOneStaff = \new DrumStaff \with {
   instrumentName = "Percussion 1"
   shortInstrumentName = "Perc. 1"
   midiInstrument = "drums"
-} { \scoreTags \percussionOneNotes }
+} { 
+  <<
+    \keyChanges
+    \scoreTags \percussionOneNotes 
+  >>
+}
 
 scorePercussionTwoStaff = \new DrumStaff \with {
   instrumentName = "Percussion 2"
   shortInstrumentName = "Perc. 2"
   midiInstrument = "drums"
-} { \scoreTags \percussionTwoNotes }
+} { 
+  <<
+    \keyChanges
+    \scoreTags \percussionTwoNotes
+  >>
+}
