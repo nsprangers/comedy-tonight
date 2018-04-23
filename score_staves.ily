@@ -254,6 +254,7 @@ scorePianoStaff = \new PianoStaff \with {
   instrumentName = "Piano"
   shortInstrumentName = "Pno."
   midiInstrument = "acoustic grand"
+  fontSize = -2
 } {
   <<
     \new Staff = "upper" {
@@ -281,6 +282,31 @@ scoreTimpaniStaff = \new Staff \with {
    { \clef bass \scoreTags \timpaniNotes }
   >>
 }
+
+scoreMalletPercussionStaff = \new StaffGroup \with { systemStartDelimiter = #'SystemStartBrace }
+<<
+  \new Staff \with {
+    instrumentName = "Bells"
+    shortInstrumentName = "Bells"
+    midiInstrument = "glockenspiel"
+  } {
+    <<
+      \keyChanges
+      \scoreTags \bellsNotes
+    >>
+  }
+
+  \new Staff \with {
+    instrumentName = "Xylophone"
+    shortInstrumentName = "Xylo."
+    midiInstrument = "xylophone"
+  } {
+    <<
+      \keyChanges
+      \scoreTags \xylophoneNotes
+    >>
+  }
+>>
 
 scorePercussionOneStaff = \new DrumStaff \with {
   instrumentName = "Percussion 1"

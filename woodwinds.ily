@@ -32,17 +32,6 @@ piccoloNotes = \relative c'''' {
   \relative b''' \keepWithTag #'(tail upper) \avBHeadAalt
 }
 
-fluteOrnamentedHeadA = \relative d'' {
-  r1 |
-  r4 d8-. e-. fis-. a-. b-. c-. |
-  d1~\startTrillSpan |
-  d8\stopTrillSpan b( c) a( b) g( a) fis( |
-  \override Glissando.style = #'zigzag
-  d2.~)\startTrillSpan d4 \stopTrillSpan \glissando |
-  c'4. b8 a4 g |
-  a8-. a-. a4-> r4 g-> |
-  a-. r d-> r |
-} 
 
 fluteOneNotes = \relative c'' {
   \transposition c'
@@ -57,15 +46,15 @@ fluteOneNotes = \relative c'' {
   >>
   R1*7 | %15
   r2 d=''4-> r4 | %16
-  \fluteOrnamentedHeadA
+  \relative d'' \fluteOrnamentedHeadA
   \relative b'' \removeWithTag #'lower \avHeadB
   \relative d'' \removeWithTag #'lower \avHeadAalt
   R1*3 |
   r4 \relative b'' \avTransOne
   \relative dis''' \avTransTwo
   \relative fis'' \svTransThree
-  \avDevOne
-  \svDevOneTag
+  \relative d''' \avDevOne
+  \relative g''' \svDevOneTag
   r2. c'4 |
   R1*2 |
   c8 aes bes c des r r4 |
@@ -94,8 +83,8 @@ fluteTwoNotes = \relative c'' {
   \relative g'' \tvTransOne
   \relative b'' \tvTransTwo
   \relative d'' \avTransThree
-  \avDevOne
-  \avDevOneTag
+  \relative d''' \avDevOne
+  \relative ees''' \avDevOneTag
   r2. a'4 |
   R1*2 |
   c8 aes bes c des r r4 |
@@ -111,19 +100,18 @@ oboeNotes = \relative c''{
     { \relative g'' \tvVamp }
   { s4 \ff s2. | s1 | }
   >>
-    R1*2 %9
-    \repeat unfold 2 {
-      R1*7 | %16
-        r2 fis4-> \f r4 | %17
-    }
+  R1*2 %9
+  R1*7 | %15
+  r2 fis4-> \f r4 | %16
+  \svHeadA
   \relative b'' \removeWithTag #'lower \avHeadB
   \relative d'' \removeWithTag #'lower \avHeadAalt
   R1*3 |
   r4 \relative b'' \avTransOne
   \relative eis'' \avTransTwo
   \relative d'' \avTransThree
-  \avDevOne
-  \relative g' \svDevOneTag
+  \relative d'' \avDevOne
+  \relative g'' \svDevOneTag
   r2. a4 |
   r2. f8 g | 
   a f g a bes r r4 |
@@ -171,7 +159,7 @@ clarinetOneNotes = \relative c''{
     \relative dis'' \avTransTwo
     \svTransThree
     \relative bes' \svDevOne
-    \relative ees'' \avDevOneTag
+    \relative g'' \svDevOneTag
     r2. a4 |
     R1 |
     r2 bes8 g a bes |
@@ -202,7 +190,7 @@ clarinetTwoNotes = \relative c' {
   \relative b' \tvTransTwo
   \relative d'' \avTransThree
   \relative bes' \svDevOne
-  \relative g' \svDevOneTag
+  \relative ees'' \avDevOneTag
   r2. f'4 |
   R1 |
   r2 bes8 g a bes |
@@ -233,7 +221,7 @@ clarinetThreeNotes = \relative c' {
   \relative eis' \avTransTwo
   \relative bes' \tvTransThree
   \relative bes' \svDevOne
-  \relative g' \svDevOneTag
+  \relative ees'' \avDevOneTag
   r2. f'4 |
   R1 |
   r2 bes8 g a bes |
@@ -257,7 +245,7 @@ bassClarinetNotes = {
   \relative a \bvHeadOut %44
   \relative g \bvFirstTrans %52
   \relative f' \tvDevOne
-  f4 r4 r2 |
+  f,4 r4 r2 |
   f'4 r r2 |
   r2 bes8 g a bes |
   c8 r8 r4 r2 |
@@ -294,9 +282,9 @@ altoSaxOneNotes = \relative c' {
   s4 |
   s1*11
   s2.
-  \relative aes \svDevThree
-  s4
-  s1*12
+  \relative aes' \svDevThree
+  r4 r2 |
+  s1*11
   \relative a' \removeWithTag #'tail \svBHeadAalt
   \relative b \keepWithTag #'(tail upper) \avBHeadAalt
 }
@@ -325,7 +313,11 @@ altoSaxTwoNotes = \relative c' {
   \relative fis' \svTransTwo
   \relative f' \svTransThree
   s4
-  s1*29
+  R1*11 |
+  r2 r4 
+  \relative f' \avDevThree
+  r4 r2 | %69
+  R1*11
   \relative fis' \removeWithTag #'(tail lower) \avBHeadAalt
   \relative b \removeWithTag #'(head lower) \avBHeadAalt
 }
@@ -352,7 +344,11 @@ tenorSaxNotes = {
   \relative b \tvTransTwo
   \relative bes \tvTransThree
   s4
-  s1*29
+  R1*11 |
+  r2 r4
+  \relative c' \tvDevThree
+  r4 r2 |
+  R1*11
   \relative fis' \removeWithTag #'(upper tail) \avBHeadAalt
   \relative g \removeWithTag #'(upper head) \avBHeadAalt
 }
@@ -370,6 +366,10 @@ bariSaxNotes = {
     \relative g \bvHeadAalt %41
     \relative a \bvHeadOut %44
     %\relative g \bvFirstTrans %52
-    s1*37
+    R1*19
+    r2. 
+    \relative aes \bvDevThree
+    r4 r2 |
+    R1*11
     \relative d \bvBHeadAalt
 }

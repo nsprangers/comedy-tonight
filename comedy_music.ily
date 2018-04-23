@@ -45,9 +45,9 @@ global = {
 %% Rehearsal, tempos, barlines
 globalMarks = {
   \set Score.markFormatter = #format-mark-box-barnumbers
-  \tempo 2=92
-  \sketchLabel "Roman Fanfare"
+  \tempo "Maestoso" 2=92
   s1*4
+  \mark \default
   \bar "||" 	%5
   \tempo "Brightly" 2 = 116
   s1*4 \mark \default		%10
@@ -56,44 +56,52 @@ globalMarks = {
   s1*8 %25
   \mark \default %26
   \sketchLabel "Bridge"
-  s1*4 %29
-  \sketchLabel "+Percussion - more oom pa"
-  s1*4 %33
-  s1*8 %41
-  s1*3 %44
-  \sketchLabel "Vamp modulate"
-  s1*4 %45
-  \bar "||" \mark \default
-  \sketchLabel "Softshoe"
-  s1*33
-  \mark \default
+  s1*8 %32
+  \mark \default %33
+  s1*15 %47
+  \bar "||" \mark \default %48
+  \tempo "Relaxed" 2 = 98
+  s1*4 %59
+  \mark \default %52
+  s1*4
+  \mark \default %56
+  s1*4
+  \mark \default %60
+  s1*4 %63
+  \mark \default %64
+  s1*5
+  \mark \default %69
+  s1*8 %76
+  \mark \default %77
+  s1*4
+  \mark \default %81
   s1*8
-  \mark \default
+  \mark \default %89
   s1*8
-  \mark \default
+  \mark \default %97
   s1*8
-  \mark \default
+  \mark \default %105
   s1*8
-  \mark \default
+  \mark \default %:w
 }
 
 keyChanges = {
   \set Staff.printKeyCancellation = ##f
   \key g \major
   s1*47
-  \tag #'keybreaks { \break }
+  %\tag #'keybreaks { \break }
   \bar "||" \key bes \major
   s1*12
-  \tag #'keybreaks { \break }
+  %\tag #'keybreaks { \break }
   \bar "||" \key aes \major
   s1*9
-  \tag #'keybreaks { \break }
+  %\tag #'keybreaks { \break }
   \bar "||" \key ees \major
   s1*8
-  \tag #'keybreaks { \break }
+  %\tag #'keybreaks { \break }
   \bar "||" \key d \major
   s1*20
-  \tag #'keybreaks { \break }
+  %\tag #'keybreaks { \break }
   \bar "||" \key ees \major
   s1*30
   \bar "|."
@@ -103,6 +111,17 @@ espress = \markup \italic "espress."
 
 FanfareRest = { R1*3 | r1\fermata | }
 
+fluteOrnamentedHeadA = {
+  R1 |
+  r4 d8-.\mf e-. fis-. a-. b-. c-. |
+  d1~\startTrillSpan |
+  d8\stopTrillSpan b( c) a( b) g( a) fis( |
+  \override Glissando.style = #'zigzag
+  d2.~)\startTrillSpan d4 \stopTrillSpan \glissando |
+  c'4. b8 a4 g |
+  a8-. a-. a4-> r4 g-> |
+  a-. r d->\f r |
+} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % "soprano" voice music defs
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,12 +151,12 @@ svVamp = {
 svHeadA = {
   \varLabel "svHeadA"
   \tag #'main {
-    d4-. g2-> d4 | g2 a2-> | %2
-    d,4-. g2-> d4 | c2 a2 | %4
-    d4 g2-> d4 | c'4. b8 a4 g4 | %6
+    d4-. \mf g2-> d4 | g2-> a2-> | %2
+    d,4-. g2-> d4 | c2-> a2-> | %4
+    d4 g2-> d4 | c'4.-> b8 a4 g4 | %6
   }
   \tag #'tag {
-    a8-. a-. a4-> r4 g-> | a-. r4 d-> r4 | %8
+    a8-. a-. a4-> r4 g-> | a-. r4 d-^\f r4 | %8
   }
 }
 
@@ -201,15 +220,15 @@ svTransThree = {
 
 svDevOne = {
   \varLabel "svDevOne"
-  bes8 c |
-  d[ bes c d] ees[ c d ees] |
-  f4 f4 r8 f4 dis8 |
-  e4 e r2 |
+  bes8( c) |
+  d[( bes c d]) ees[( c d ees]) |
+  f4-. f8-- f,-. r8 f'4-. dis8-- |
+  e4-. e-. r2 |
 }
 
 svDevOneTag = {
   \varLabel "svDevOneTag"
-  g4-. e~ e2 |
+  g4-. e2.-> |
 }
 
 svDevTwo = {
@@ -225,8 +244,8 @@ svDevTwo = {
   \tag #'third { ees8 fes ges | g }
   \tag #'fourth { 
     ees8 f g aes[ f g aes] | 
-    bes4 bes4 r8 bes4 aes8 |
-    a4 a r2|
+    bes4-. bes8-- bes,-. r bes'4-. aes8-- |
+    a4-. a-. r2|
     r2.
   }
 }
@@ -235,12 +254,13 @@ svDevThree = {
   \varLabel "svDevThree"
   %begins on beat 4
   %ends on beat 3
-  aes8 bes |
-  c[ b c b] c[ b c b] |
-  c8-- ees4-. aes,8~ aes4 r4 |
-  bes8-- des4-. ges,8~ ges4 cis( |
-  d)-. c( des)-. b( |
-  c8)-. bes( ces)-. a( bes4)-.
+  aes8( \f bes |
+  c[ b c b] c[ b c b]) |
+  c8-- ees4-. aes,8-> ~ aes4 r4 |
+  bes8-- des4-. ges,8-> ~ ges4 e'->( |
+  f)-. ees->( e)-. d->( |
+  ees8)-. cis( d)-. c( des)-. b( c)-. a( |
+  bes4)-.
 }
 
 %% Shout form: A B A C
@@ -323,23 +343,23 @@ avHeadA = {
     \tag #'upper {
       \tag #'labels { <> ^\markup \smaller \varName "avHeadA_upper" }
       \tag #'main {
-        r4 d2-> d4-. | r4 e-. r fis-. | %2
+        r4 d2-> \mp d4-. | r4 e-. r fis-. | %2
         r4 d2-> d4-. | r g-. r fis-. | %4
         r4 d2-> d4-. | r g-. r g-.  | %6
       }
       \tag #'tag {
-        f8-. f-. f4-. r4 g->  | a-. r a-> r | %8
+        f8-. f-. f4-> r4 g->  | a-. r a-^\f r | %8
       }
     }
     \tag #'lower {
       \tag #'labels { <> _\markup \smaller \varName "avHeadA_lower" }
       \tag #'main {
-        r4 b2-> b4 | r c r d | %2
+        r4 b2-> \mp b4 | r c r d | %2
       r4 b2-> b4 | r e r d | %4
       r4 b2-> b4 | r e r e | %6
       }
       \tag #'tag {
-      c8 c c4 r4 g-> | a-. r c-> r4 | %8
+      c8-. c-. c4-> r4 g-> | a-. r c-^\f r4 | %8
       }
     }
   >>
@@ -459,17 +479,30 @@ avTransThree = {
 }
 
 avDevOne = {
-  \varLabel "avDevOneTag"
+  \varLabel "avDevOne"
   % starts beat 4
   r4 |
   d r ees r |
-  r f r4. ees8( |
+  r f r4. ees!8( |
   e4) r4 r2 |
 }
 
 avDevOneTag = {
   \varLabel "avDevOneTag"
-  ees4-. c4~ c2 |
+  ees!4-. c2.-> |
+}
+
+avDevThree = {
+  \varLabel "avDevThree"
+  %begins on beat 4
+  %ends on beat 
+  f8( \f g8 |
+  aes[ g aes g] aes[ g aes g]) | %64
+  aes8-- c4-. f,8-> ~ f4 r4 | %65
+  g8-- bes4-. e,8-> ~ e4 cis'->( | %66
+  d)-. c->( des)-. b->( | %67
+  c8)-. bes( ces)-. a( bes)-. aes( a)-. fis( | %68
+  g4)-.
 }
 
 avBHeadAalt = {
@@ -635,7 +668,17 @@ tvDevOne = {
   R1 |
   r4. f8 r2 |
   r2 r8 e4-. e8-. |
-  R1 |
+  ees!4-. c2. |
+}
+
+tvDevThree = {
+  c8( \f des |
+  ees[ d ees d] ees[ d ees d]) |
+  ees8-- ges4-. ees8-> ~ ees4 r4 |
+  bes8-- ees4-. d8-> ~ d4 r4 |
+  r2. r8 b( |
+  c)-. bes( b)-. a( bes)-. aes( a)-. fis( |
+  g4)-.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -655,9 +698,10 @@ bvVamp = {
 
 bvHeadA = {
   \varLabel "bvHeadA"
-  \repeat unfold 4 { g4 r d r | } %4
+  g4 \mf r d r |
+  \repeat unfold 3 { g4 r d r | } %4
   g4 r d r  | g4 r d r  | %6
-  f8-. f-. f4-. r2 | r2 d'4-> r | %8
+  f8-. f-. f4-> r2 | r2 d'4-^\f r | %8
 }
 
 bvHeadB = {
@@ -694,4 +738,15 @@ bvBHeadAalt = {
   d4 r2 d4 |
   bes1~\fp\< |
   bes2. r4\! |
+}
+
+bvDevThree = {
+  aes8( \f bes |
+  c8[ b c b] c[ b c b]) |
+  c-- ees4-. ces8-> ~ ces4 r |
+  bes8-- des4-. bes8-> ~ bes4 r |
+  R1 |
+  r4. a8( bes)-. aes( a)-. fis( |
+  g4)-.
+
 }

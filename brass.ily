@@ -3,11 +3,11 @@
 \include "comedy_music.ily"
 
 trumpetHeadAalt = \relative g' {
-  r1 |
+  R1 |
   r2 g8--( a b c |
   d4)-^ r2. |
   \autoBeamOff
-  r2 r8 g,( \tuplet 3/2 { a[ b c] } |
+  r2 g,8 gis( \tuplet 3/2 { a[ b c] } |
   d4)-^ r2 
   \autoBeamOn
 }
@@ -20,7 +20,7 @@ trumpetOneNotes = \relative c'' {
     R1*2 | %9
     \repeat unfold 2 {
       R1*7 | %16
-        r2 d=''4->\f r4 | %17
+        r2 d=''4-^\f r4 | %17
     }
   \svHeadB
   \trumpetHeadAalt
@@ -48,7 +48,7 @@ trumpetTwoNotes = \relative c'' {
     R1*2 | %9
     \repeat unfold 2 {
       R1*7 | %16
-        r2 d=''4->\f r4 | %17
+        r2 d=''4-^\f r4 | %17
     }
   \svHeadB
   \trumpetHeadAalt
@@ -76,7 +76,7 @@ trumpetThreeNotes = \relative c'' {
     R1*2 | %9
     \repeat unfold 2 {
       R1*7 | %16
-        r2 d=''4->\f r4 | %17
+        r2 d=''4-^\f r4 | %17
     }
   \svHeadB
   \trumpetHeadAalt
@@ -106,7 +106,7 @@ hornOneNotes = \relative c'{
     \repeat unfold 2 {
       R1*6 | %15
         a8-.\mp a-. a4-> r4 g-> |
-        a-. r c-> \f r |
+        a-. r c-^ \f r |
     }
   \relative d' \keepWithTag #'upper \tvHeadB %29
   \relative b' \removeWithTag #'(two threeFour) \tvHeadAalt
@@ -198,7 +198,7 @@ bassTromboneNotes = \relative g, {
   >> %9
     \repeat unfold 2 {
       R1*7 | %16
-        r2 d4-> \f r4 | %17
+        r2 d4-^ \f r4 | %17
     } %25
   \relative g \bvHeadB
   s1*48

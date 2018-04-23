@@ -22,7 +22,8 @@
 \include "score_staves.ily"
 
 scoreBreaks = {
-  %\repeat unfold 3 { s1*8 \break }
+  \repeat unfold 15 { s1*8 \break }
+
 }
 
 scoreGlobalMarksStaff = \new Staff
@@ -125,6 +126,7 @@ scoreGlobalMarksStaff = \new Staff
 
     \new StaffGroup
     <<
+      \scoreMalletPercussionStaff
       \scorePercussionOneStaff
       \scorePercussionTwoStaff
     >>
@@ -137,18 +139,18 @@ scoreGlobalMarksStaff = \new Staff
 
     \context {
       \Staff
-        \override Staff.BarLine.extra-spacing-width = #'(0 . 9)
-      %\RemoveEmptyStaves
-      %\override VerticalAxisGroup.staff-staff-spacing =
-      %#'((basic-distance . 12)
-      %   (minimum-distance . 10)
-      %   (padding . 1)
-      %   (stretchability . 5))
+        %\override Staff.BarLine.extra-spacing-width = #'(0 . 20)
+        %\RemoveEmptyStaves
+        %\override VerticalAxisGroup.staff-staff-spacing =
+        %#'((basic-distance . 12)
+            %   (minimum-distance . 10)
+            %   (padding . 1)
+            %   (stretchability . 5))
     }
 
     \context {
       \Score
-      \override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1 32)
+      %\override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1 32)
     }
 
     indent = 1.5\cm
