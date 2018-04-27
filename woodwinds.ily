@@ -22,16 +22,22 @@ piccoloNotes = \relative c'''' {
   R1*3 | r4
   \relative d''' \svTransOne
   \relative fis''' \svTransTwo
-  s2.
-  s1*10
-  s2 s8
-  \relative ees''' \keepWithTag #'(third fourth) \svDevTwo
-  s4
+  r2.
+  R1*7
+  r2. f4-. | %56
+  r2.
+  \relative f'' 
+      \keepWithTag #'(first second third fourth) \svDevTwo
   s1*17
   \relative a''' \removeWithTag #'tail \svBHeadAalt
   \relative b''' \keepWithTag #'(tail upper) \avBHeadAalt
+  R1*7 | %93
+  \relative a''' \keepWithTag #'fifth \svTransC %96
+  \relative bes'' \keepWithTag #'head \tvCHeadB %100
+  R1*4 | %104
+  R1*4 | %108
+  \relative bes'' \keepWithTag #'thir \svCHeadAlt %112
 }
-
 
 fluteOneNotes = \relative c'' {
   \transposition c'
@@ -55,12 +61,26 @@ fluteOneNotes = \relative c'' {
   \relative fis'' \svTransThree
   \relative d''' \avDevOne
   \relative g''' \svDevOneTag
-  r2. c'4 |
-  R1*2 |
-  c8 aes bes c des r r4 |
-  s1*21
+  r2. c'4 | %56
+  r2.
+  \relative f''
+      \keepWithTag #'(first second third) \svDevTwo
+  r8 r4 | %59
+  R1*8 | %67
+  r2.
+  \relative f'' \svShoutA
+  \relative f'' \svShoutB
+  \relative f'' \svShoutA
+  \relative aes' \svShoutC
+  \relative a'' \svTransB
   \relative a'' \removeWithTag #'tail \svBHeadAalt
   \relative g'' \keepWithTag #'(tail lower) \avBHeadAalt
+  R1*7 | %93
+  \relative a''' \keepWithTag #'fifth \svTransC %96
+  \relative bes'' \keepWithTag #'head \tvCHeadB %100
+  \relative aes'' \keepWithTag #'tail \svCHeadB %104
+  \relative bes'' \keepWithTag #'fir \svCHeadAlt %106
+  R1*2 | %108
 }
 
 fluteTwoNotes = \relative c'' {
@@ -79,18 +99,30 @@ fluteTwoNotes = \relative c'' {
   \fluteOrnamentedHeadA
   \relative b'' \removeWithTag #'upper \avHeadB
   \relative d'' \removeWithTag #'upper \avHeadAalt
-  R1*3 |
+  R1*3 | r4
   \relative g'' \tvTransOne
   \relative b'' \tvTransTwo
   \relative d'' \avTransThree
   \relative d''' \avDevOne
   \relative ees''' \avDevOneTag
-  r2. a'4 |
-  R1*2 |
-  c8 aes bes c des r r4 |
-  s1*21
+  r2. a4 | %56
+  r2.
+  \keepWithTag #'(first second third) \svDevTwo
+  r8 r4 | %59
+  R1*8 | %67
+  r2.
+  \relative f'' \svShoutA
+  \relative f'' \svShoutB
+  \relative f'' \svShoutA
+  \relative aes' \svShoutC
+  \relative a'' \svTransB
   \relative a'' \removeWithTag #'tail \svBHeadAalt
   \relative b' \keepWithTag #'(tail upper) \avBHeadAalt
+  R1*7 | %93
+  \relative a'' \keepWithTag #'fifth \svTransC %96
+  \relative bes'' \keepWithTag #'head \tvCHeadB %100
+  \relative aes'' \keepWithTag #'tail \svCHeadB %104
+  \relative bes'' \keepWithTag #'fir \svCHeadAlt %106
 }
 
 oboeNotes = \relative c''{
@@ -115,8 +147,15 @@ oboeNotes = \relative c''{
   r2. a4 |
   r2. f8 g | 
   a f g a bes r r4 |
-  s1*22
+  R1*22
   \relative a' \removeWithTag #'lower \avBHeadAalt
+  R1*5 | %93
+  r2 r4
+  \relative a'' \keepWithTag #'(fourth fifth) \svTransC %96
+  \relative bes'' \svCHeadB %104
+  R1*2 | %106
+  \relative bes'' \keepWithTag #'sec \svCHeadAlt %104
+  \relative bes' \keepWithTag #'thir \svCHeadAlt %112
 }
 
 bassoonNotes = \relative c {
@@ -129,13 +168,23 @@ bassoonNotes = \relative c {
   \repeat unfold 2 { \svHeadA } | %25
   \bvHeadB | %32
   \relative d \svHeadAalt
-  R1*3 |
+  R1*3 | r4
   \relative g \tvTransOne
   \tvTransTwo
   \tvTransThree
-  s4
-  s1*29
+  r4 | %51
+  R1*5 | %56
+  f4-. r4 r4
+  \relative f \keepWithTag #'first \svDevTwo
+  r8 r4 | %58
+  R1*22 | %80
   \relative d \bvBHeadAalt
+  R1*4 | %92
+  \relative a \keepWithTag #'(second third fourth fifth) \svTransC %96
+  \relative ees \keepWithTag #'(head lower) \avCHeadB %100
+  \relative aes \keepWithTag #'tail \svCHeadB %104
+  R1*2 | %106
+  \relative bes \keepWithTag #'sec \svCHeadAlt %104
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,13 +209,19 @@ clarinetOneNotes = \relative c''{
     \svTransThree
     \relative bes' \svDevOne
     \relative g'' \svDevOneTag
-    r2. a4 |
-    R1 |
-    r2 bes8 g a bes |
-    c8 r r4 r2 |
-    s1*21 |
+    r2. c4 |
+    r2.
+    \relative f'' \keepWithTag #'(first second) \svDevTwo
+    r8 r4 r2 | %59
+    R1*21 | 
     \relative a' \removeWithTag #'tail \svBHeadAalt
     \relative b' \keepWithTag #'(tail upper) \avBHeadAalt
+    R1*4 | %92
+    \relative a' \keepWithTag #'(second third) \svTransC %94
+    \relative a'' \keepWithTag #'(fourth fifth) \svTransC %96
+  \relative bes'' \svCHeadB %100
+  \relative bes' \keepWithTag #'fir \svCHeadAlt %106
+  \relative bes' \keepWithTag #'(sec thir) \svCHeadAlt %112
 }
 
 clarinetTwoNotes = \relative c' {
@@ -191,12 +246,18 @@ clarinetTwoNotes = \relative c' {
   \relative d'' \avTransThree
   \relative bes' \svDevOne
   \relative ees'' \avDevOneTag
-  r2. f'4 |
-  R1 |
-  r2 bes8 g a bes |
-  c8 r r4 r2 |
-  s1*21 |
+  r2. a''4 |
+  r2.
+  \keepWithTag #'first \svDevTwo
+  r8 r4 | %58
+  R1*22 |
   \relative a' \removeWithTag #'lower \avBHeadAalt
+  R1*4
+  \relative a' \keepWithTag #'(second third fourth fifth) \svTransC %96
+  \relative ees' \keepWithTag #'(head upper) \avCHeadB %100
+  \relative aes'' \keepWithTag #'tail \svCHeadB %104
+  \relative bes' \keepWithTag #'fir \svCHeadAlt %106
+  \relative bes' \keepWithTag #'(sec thir) \svCHeadAlt %112
 }
 clarinetTwoMusic = { \clarinetTwoNotes }
 
@@ -216,18 +277,24 @@ clarinetThreeNotes = \relative c' {
   }
   \relative b' \removeWithTag #'upper \avHeadB
   \relative d' \removeWithTag #'upper \avHeadAalt
-  R1*3 |
+  R1*3 | r4
   \relative g' \tvTransOne
-  \relative eis' \avTransTwo
+  \relative fis' \svTransTwo
   \relative bes' \tvTransThree
   \relative bes' \svDevOne
   \relative ees'' \avDevOneTag
   r2. f'4 |
-  R1 |
-  r2 bes8 g a bes |
-  c8 r r4 r2 |
-  s1*21 |
+  r2.
+  \keepWithTag #'first \svDevTwo
+  r8 r4 | %58
+  s1*22 |
   \relative fis' \removeWithTag #'upper \avBHeadAalt
+  R1*4 | %92
+  \relative a \keepWithTag #'(second third fourth fifth) \svTransC %96
+  \relative ees' \keepWithTag #'(head lower) \avCHeadB %100
+  \relative aes' \keepWithTag #'tail \svCHeadB %104
+  \relative bes' \keepWithTag #'fir \svCHeadAlt %106
+  \relative bes' \keepWithTag #'(sec thir) \svCHeadAlt %112
 }
 clarinetThreeMusic = { \clarinetThreeNotes }
 
@@ -246,11 +313,17 @@ bassClarinetNotes = {
   \relative g \bvFirstTrans %52
   \relative f' \tvDevOne
   f,4 r4 r2 |
-  f'4 r r2 |
-  r2 bes8 g a bes |
-  c8 r8 r4 r2 |
-  s1*21
+  f'4 r r 
+  \relative f \keepWithTag #'(first second) \svDevTwo
+  r8 r4 r2 | %59
+  R1*21
   \relative d \bvBHeadAalt
+  R1*2 | %90
+  \relative a, \keepWithTag #'first \svTransC %92
+  R1*3 | %95
+  \relative a, \keepWithTag #'fifth \svTransC %96
+  \relative ees \bvCHeadB %104
+  \relative ees \bvCHeadAlt %112
 }
 
 
@@ -279,14 +352,24 @@ altoSaxOneNotes = \relative c' {
   \relative b' \avTransOne
   \relative dis'' \avTransTwo
   \relative d'' \avTransThree
-  s4 |
-  s1*11
-  s2.
+  r4 | %51
+  R1*4 | %55
+  r4 a8-. a-. r2 |%56
+  r2.
+  \relative f' \keepWithTag #'(first second) \svDevTwo
+  r8 r4 r2 | %59
+  R1*3
+  r2.
   \relative aes' \svDevThree
   r4 r2 |
   s1*11
   \relative a' \removeWithTag #'tail \svBHeadAalt
   \relative b \keepWithTag #'(tail upper) \avBHeadAalt
+  R1*4 | %92
+  \relative a' \keepWithTag #'(second third fourth fifth) \svTransC %96
+  \relative bes' \keepWithTag #'head \svCHeadB %100
+  \relative aes' \keepWithTag #'tail \svCHeadB %104
+  \relative g' \keepWithTag #'(head lower) \avCHeadAlt %109
 }
 
 altoSaxTwoNotes = \relative c' {
@@ -312,14 +395,24 @@ altoSaxTwoNotes = \relative c' {
   \relative d' \svTransOne
   \relative fis' \svTransTwo
   \relative f' \svTransThree
-  s4
-  R1*11 |
-  r2 r4 
+  r4 | %51
+  R1*4 | %55
+  r4 f8-. f-. r2 |%56
+  r2.
+  \relative f' \keepWithTag #'(first second) \svDevTwo
+  r8 r4 r2 | %59
+  R1*3
+  r2.
   \relative f' \avDevThree
   r4 r2 | %69
   R1*11
-  \relative fis' \removeWithTag #'(tail lower) \avBHeadAalt
-  \relative b \removeWithTag #'(head lower) \avBHeadAalt
+  \relative fis \keepWithTag #'(head upper) \avBHeadAalt
+  \relative b \keepWithTag #'(tail lower) \avBHeadAalt
+  R1*4 | %92
+  \relative a' \keepWithTag #'(second third fourth fifth) \svTransC %96
+  \relative g' \keepWithTag #'(head upper) \avCHeadB %100
+  \relative f' \keepWithTag #'(tail upper) \avCHeadB %104
+  \relative bes \keepWithTag #'(head upper) \avCHeadAlt %109
 }
 
 tenorSaxNotes = {
@@ -339,18 +432,30 @@ tenorSaxNotes = {
     } %24
   \relative d \keepWithTag #'lower \tvHeadB %29
   \relative b \removeWithTag #'(one two) \tvHeadAalt
-  R1*3 |
+  R1*3 | r4
   \relative g \tvTransOne
   \relative b \tvTransTwo
   \relative bes \tvTransThree
-  s4
-  R1*11 |
+  r4 | %51
+  R1*4 | %55
+  r4 f8-. f-. r2 |%56
+  f'4-> r4 r4 
+  \relative f' \keepWithTag #'first \svDevTwo
+  r8 r4 | %58
+  R1*4 | %62
   r2 r4
   \relative c' \tvDevThree
   r4 r2 |
   R1*11
-  \relative fis' \removeWithTag #'(upper tail) \avBHeadAalt
+  \relative fis \keepWithTag #'(head lower) \avBHeadAalt
   \relative g \removeWithTag #'(upper head) \avBHeadAalt
+  R1*5 | %93
+  r2 r4 %94
+  \relative a \keepWithTag #'(fourth fifth) \svTransC %96
+  \relative ees' \keepWithTag #'(head lower) \avCHeadB %100
+  \relative des' \keepWithTag #'(tail lower) \avCHeadB %104
+  R1*4 | %108
+  \relative bes \keepWithTag #'thir \svCHeadAlt %112
 }
 
 bariSaxNotes = {
@@ -365,11 +470,22 @@ bariSaxNotes = {
     \relative g' \bvHeadB %33
     \relative g \bvHeadAalt %41
     \relative a \bvHeadOut %44
-    %\relative g \bvFirstTrans %52
-    R1*19
+    \relative g \bvFirstTrans %52
+    R1*4
+    f4-> r r2 |
+    r2.
+    \keepWithTag #'first \svDevTwo
+    r8 r4 | %58
+    R1*4 | %62
     r2. 
     \relative aes \bvDevThree
     r4 r2 |
     R1*11
     \relative d \bvBHeadAalt
+    R1*2 %90
+    \relative a, \keepWithTag #'first \svTransC
+    R1*3 | %95
+    \relative a, \keepWithTag #'fifth \svTransC %96
+  \relative ees \bvCHeadB %104
+  \relative ees \bvCHeadAlt %112
 }

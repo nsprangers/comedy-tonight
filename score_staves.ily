@@ -191,7 +191,7 @@ scoreHornThreeFourStaff = \new Staff \with {
 } { \transpose f c' 
   <<
     \keyChanges
-    {  \partcombine \scoreTags \hornThreeNotes \scoreTags \hornFourNotes }
+    {  \scoreTags \hornThreeNotes }
   >>
 }
 
@@ -243,7 +243,7 @@ scoreDoubleBassStaff = \new Staff \with {
   instrumentName = "Double Bass"
   shortInstrumentName = "D.B."
   midiInstrument = "acoustic bass"
-} {  
+} { \transpose c c' 
   <<
     \keyChanges
     { \clef bass \scoreTags \doubleBassNotes }

@@ -78,20 +78,26 @@ xylophoneNotes = \relative d'' {
   \FanfareRest
   R1*4 | %8
   R1*8 | %16
-  \fluteOrnamentedHeadA
+  R1 | %17
+  r4 d8-.\mf e-. fis-. a-. b-. c-. | %18
+  d4-> r4 r2 | %19
+  r8 b c a b g a fis | %20
+  \override Glissando.style = #'zigzag
+  d2 r4 d4 \glissando | %21
+  c'4. b8 a4 g | %22
+  a8-. a-. a4-> r4 g-> | %23
+  a-. r d->\f r | %24
   R1*8 | %32
   R1 | %33
-  r2 g,8--( a b c |
-  d4)-^ r2. |
-  \autoBeamOff
-  r2 g,8 gis( \tuplet 3/2 { a[ b c] } |
-  d4)-^ r2.
-  \autoBeamOn
+  r2 g,8-- a b c | %34
+  d4-^ r2. | %35
+  r2 g,8 a \tuplet 3/2 { b[ c cis] } | %36
+  d4-^ r r2 | %37
   R1 | %38
   <f, aes>4 r <f aes>4. <ees g>8 | %39
   <f aes>4 <g bes> r2 | %40
   R1*11 | %51
-  <bes, d>4 r <d f> r | %52
+  r4 <bes d> ^\markup "marimba" r <d f> | %52
   f f8 f,8 r8 f'4 ees8 | %53
   e4 e r8 e,4 e8 | %54
   <ees'! g>4 <c e>2.:16 | %55
@@ -112,33 +118,39 @@ xylophoneNotes = \relative d'' {
 percussionOneNotes = \drummode {
   R1*3 | %4
   r2 tt2 ^\tweak self-alignment-X #RIGHT ^\markup \smaller {"sm. tamtam"}  \fermata \f | %4
-  R1*11 | %15
-  r2 cb4 ^\markup "cowbell" r4 | %16
-  R1*7 | %23
+  R1*10 | %14
+  r2 cymc2 ^\markup "cymbal w/ stick" \laissezVibrer | %15
+  r2 cb4 \ff ^\markup "cowbell" r4 | %16
+  R1*6 | %22
+  r2 cymc2 ^\markup "cymbal w/ stick" \laissezVibrer | %15
   r2 whs ^\tweak self-alignment-X #CENTER ^\markup "siren whistle" \bendAfter #+6  | %24
   R1 | %25
   tt1 ^\markup "lg. tam-tam" | %26
   R1 | %27
-  cymc2 \laissezVibrer ^\markup "cym w/ stick"
-    tri2 ^\tweak self-alignment-X #LEFT ^\markup "triangle" \laissezVibrer | %28
+  tri2 ^\tweak self-alignment-X #LEFT ^\markup "triangle" \laissezVibrer 
+    cymc2 \laissezVibrer ^\markup "cym w/ stick" | %28
   R1*2 | %30
   r4 cymc2.:32 ~ \< | %31
   cymc4-> \! ^\markup "choke" r cymc2 | %32
-  R1*11 | %43
+  \repeat unfold 2 {
+    R1 | %33 35
+    r2 ss4 ^\markup "whip" r | %34 36
+  }
+  R1*7 | %43
   vibs4 ^\markup "vibraslap" \laissezVibrer r4 r2 | %44
   R1*2 | %46
   r4 cymc2. ^\markup "cym." | %47
   R1 | %48
-  wbl4 ^\markup "temple block" wbh r2 | %49
+  wbl4 \mf ^\markup "temple block" wbh r2 | %49
   R1 | %50
   wbl4 wbh r2 | %51
   R1*12 | %63
-  gui1:32 ~ ^\markup "ratchet" | %64
+  gui1:32 ~ \f ^\markup "ratchet" | %64
   gui8:32 gui r4 r2 | %65
   r4. bol8 ^\tweak self-alignment-X #CENTER ^\markup "bongos w/ mallets"
-    \tuplet 3/2 { boh8:32[ bol: boh:] }
+    \tuplet 3/2 { boh8[ bol boh] }
     \tuplet 3/2 { bol8:32 boh: bol: } | %66
-  boh4 r2. | %67
+  boh4 r4 r2 | %67
 }
 
 snareDrumNotes = \drummode {
@@ -174,7 +186,7 @@ percussionTwoNotes = \drummode {
   <<
     { r4 sn8 ^\tweak self-alignment-X #RIGHT ^\markup "snare" sn sn4 sn | 
       r4 sn r sn |
-      r4 sn8\mp sn sn4 sn | 
+      r4 sn8 ^\mp sn sn4 sn | 
       r4 sn r sn |
     }
     \\
@@ -215,7 +227,7 @@ percussionTwoNotes = \drummode {
       r4 sn r sn | %29
       r sn r sn | %30
       r sn4:32 ~ ^\< sn \! sn-> | %31
-      r2 ^\markup "field drum" sn2:32 ^\sfz | %32
+      r2 sn2:32 ^\sfz | %32
     }
     \\
     {
@@ -232,15 +244,14 @@ percussionTwoNotes = \drummode {
   <<
     {
       r4  \! sn r sn4:32^\< ~ | %33
-      sn4:32~ sn->\! r sn-> | %34
+      sn4:32 ~ sn->\!  r sn-> | %34
       r4 \! sn r sn4:32^\<  ~ | %35
-      sn4:32~ sn->\! r sn | %36
+      sn4:32 ~ sn->\!  r sn-> | %36
       r sn r sn:32 | %37
-      r sn r sn ^\markup "snare" | %38
+      r sn r sn | %38
       sn  r sn4. sn8 | %39
       sn4 sn sn sn | %40
       sn-> r r2 | %41
-      R1*2 | %43
     }
   \\
     {
@@ -253,8 +264,98 @@ percussionTwoNotes = \drummode {
       bd r2. | %39
       R1 | %40
       bd4-> r4 r2 | %41
-      R1*2 | %43
     }
   >>
-  R1*50
+  R1 | %42
+  r2 r4 sn | %43
+  <<
+    {
+      r4 sn8 sn sn4 sn | %44
+      r sn r sn | %45
+      r sn8 sn sn4 sn | %46
+      r sn2:32 ~ sn4 | %47
+      sn r r2 | %48
+    }
+  \\
+    {
+      \repeat unfold 3 { bd4 r bd r| } %46
+      bd4 bd2-> bd4 | %47
+      bd4 r r2 | %48
+    }
+  >>
+  R1*2 | %50
+  <<
+    {
+      r2 r4 sn8 \mf ^\tweak self-alignment-X #RIGHT ^\markup "on rims" sn | %51
+      sn:32[ sn sn sn:32] sn[ sn sn:32 sn] | %52
+      sn[ sn sn sn->]  r sn sn:32 sn | %53
+      \tuplet 3/2 { sn8[ sn sn] } sn8 sn8 r8 sn sn sn16 sn | %54
+      sn4 ~ ^\markup "drag" sn4-. r8 sn ss4-> ^\markup "ping" | %55
+      r4 sn8 ^\markup "on drum" sn r4 sn | %56
+      r4 sn:32 ~ sn r | %57
+    }
+  \\
+    {
+      R1*2 | %52
+      r4. bd8 \mp r2 | %53
+      r2 bd4 r4 | %54
+      R1 | %55
+      r2 bd4 r4 | %56
+      R1 | %57
+    }
+  >>
+  R1*23 | %80
+  \time 6/8
+  <<
+    { 
+      sn8.[ ^\markup "field drum" sn16 sn8:32] sn8 sn sn |
+      sn8 sn16:32 sn sn8
+      sn8 sn16:32 sn sn8 |
+      sn8. sn16 sn8:32] sn8 sn sn |
+      sn8 sn16:32 sn sn8
+      sn8 sn16:32 sn sn8 |
+      sn8. sn16 sn8:32 sn8 sn sn |
+    }
+  \\
+    {
+      \repeat unfold 10 { bd4 r8 } | %85
+    }
+  >>
+      \time 2/2
+  <<
+    {
+      r4 sn r sn | %86
+      r4 sn sn2:32-> | %87
+      sn4 sn2:32-> sn4-> | %88
+    }
+  \\
+    {
+      bd4 r bd r | %86
+      bd4 r4 r2 | %87
+      r2 r4 bd-> | %88
+    }
+  >>
+  <<
+    {
+      \acciaccatura { sn16 sn } sn4-> r4 r2 | %89
+      R1 | %90
+      \acciaccatura { sn16 sn } sn4-> r4 r2 | %91
+      R1 | %92
+      \acciaccatura { sn16 sn } sn4-> r4 r sn ^\markup "rimshot" | %93
+      sn8 sn sn4 r sn:32 ~ | %94
+      sn4-> r4 r2 | %95
+      r4 sn ^\markup "snare" sn sn:32 ^\sfz | %96
+    }
+  \\
+    {
+      bd4 r r2 | %89
+      R1 | %90
+      bd4 r r2 | %91
+      R1 | %92
+      r2 r4 bd | %93
+      bd r4 r2 | %94
+      bd4 r4 r2 | %95
+      r2 r4 bd-> \sfz | %96
+    }
+  >>
 }

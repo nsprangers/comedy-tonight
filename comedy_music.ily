@@ -49,7 +49,7 @@ globalMarks = {
   s1*4
   \mark \default
   \bar "||" 	%5
-  \tempo "Brightly" 2 = 116
+  \tempo "Brightly" 2 = 108
   s1*4 \mark \default		%10
   s1*8	%17
   \mark \default %18
@@ -60,9 +60,10 @@ globalMarks = {
   \mark \default %33
   s1*15 %47
   \bar "||" \mark \default %48
-  \tempo "Relaxed" 2 = 98
+  \tempo "Slowing"
   s1*4 %59
   \mark \default %52
+  \tempo "Relaxed" 2 = 96
   s1*4
   \mark \default %56
   s1*4
@@ -71,18 +72,45 @@ globalMarks = {
   \mark \default %64
   s1*5
   \mark \default %69
-  s1*8 %76
+  s1*8 | %76
   \mark \default %77
-  s1*4
+  s1*4 |
+
   \mark \default %81
-  s1*8
+  \time 6/8
+  \tempo "Stately" 4. = 72
+  %s1*5 |
+  \repeat unfold 5 { s2. | }
+  \time 2/2
+  \tempo "Tempo Primo" 2 = 108
+  \mark \markup {
+    \concat {
+      (
+       \smaller \general-align #Y #DOWN \note #"8" #1
+       " = "
+       \smaller \general-align #Y #DOWN \note #"4" #1
+      )
+    }
+  }
+  s1*3 |
+
   \mark \default %89
-  s1*8
+  s1*4 |
+  \tempo "Poco Rit."
+  s1*3 |
+  \tempo "Molto Rit."
+  s1 |
   \mark \default %97
-  s1*8
+  \tempo "Kickline!"
+  s1*2
+  \tempo "Accel."
+  s1*6
   \mark \default %105
+  \tempo "Faster than Before" 4 = 120
   s1*8
-  \mark \default %:w
+  \mark \default %113
+  s1*8
+  \mark \default %121
 }
 
 keyChanges = {
@@ -100,7 +128,11 @@ keyChanges = {
   s1*8
   %\tag #'keybreaks { \break }
   \bar "||" \key d \major
-  s1*20
+  s1*4
+  \time 6/8
+  \repeat unfold 5 { s2. | }
+  \time 2/2
+  s1*11
   %\tag #'keybreaks { \break }
   \bar "||" \key ees \major
   s1*30
@@ -109,7 +141,7 @@ keyChanges = {
 
 espress = \markup \italic "espress."
 
-FanfareRest = { R1*3 | r1\fermata | }
+FanfareRest = { R1*3 | r2 r2\fermata | }
 
 fluteOrnamentedHeadA = {
   R1 |
@@ -139,7 +171,7 @@ svFanfare = {
     d2 a4 e'4~ |
     e4 a, d4. d8 |
     a4 fis'2.\< | 
-    r1\!\fermata | 
+    r2\! r2\fermata | 
 }
 
 svVamp = {
@@ -151,8 +183,8 @@ svVamp = {
 svHeadA = {
   \varLabel "svHeadA"
   \tag #'main {
-    d4-. \mf g2-> d4 | g2-> a2-> | %2
-    d,4-. g2-> d4 | c2-> a2-> | %4
+    d4-. \mf g2-> d4 | g2 a2-> | %2
+    d,4-. g2-> d4 | c2 a2-> | %4
     d4 g2-> d4 | c'4.-> b8 a4 g4 | %6
   }
   \tag #'tag {
@@ -205,8 +237,8 @@ svTransTwo = {
   \varLabel "svTransTwo"
   %ends on beat 1
   r4 fis8-. fis-. fis4-. fis-. |
-  r b2-> b4 |
-  bes4-^ 
+  r aes2-> b4 |
+  bes?4-^ 
 }
 
 svTransThree = {
@@ -239,14 +271,17 @@ svDevTwo = {
   }
   \tag #'second {
     g8 a b |
-    c[ aes bes c] des
+    c
   }
-  \tag #'third { ees8 fes ges | g }
+  \tag #'third { 
+        aes bes c des
+  }
   \tag #'fourth { 
-    ees8 f g aes[ f g aes] | 
+        ees8 fes ges |
+    g[ ees8 f g] aes[ f g aes] | 
     bes4-. bes8-- bes,-. r bes'4-. aes8-- |
-    a4-. a-. r2|
-    r2.
+    a4-. a-. r2 |
+    R1 |
   }
 }
 
@@ -307,17 +342,73 @@ svTransB = {
 
 svBHeadAalt = {
   \tag #'head {
-    a4-. d2-> a4 |
-    d2-> e-> |
-    a,4-. d2-> a4 |
-    g2-> e-> |
-    a4-. d2-> 
+    %\time 6/8
+    a4-. d8-> ~ d4 a8 |
+    d4.-> e-> |
+    a,4-. d8-> ~ d4 a8 |
+    g4.-> e-> |
+    a4-. d8-> ~ d4
   }
   \tag #'tail {
-    a4 |
-    d e fis a |
+    a8 |
+    % cut time 8 = 4
+    %\time 2/2
+    d4 e fis a |
     bes1~ |
     bes2. r4 |
+  }
+}
+
+% Order: first first second third fourth fifth
+svTransC = {
+  \tag #'first {
+    a8-. a-. a2-> g4 |
+    a2 b-> |
+  }
+  \tag #'second {
+    a8-. a-. a2-> 
+  }
+  \tag #'third {
+    g4 |
+    a8-. a-. a2->
+  }
+  \tag #'fourth {
+    g4->( |
+    a4-^) r a-^ r |
+  }
+  \tag #'fifth {
+    a4-^ a-^ a-^ a-> \sfz |
+  }
+}
+
+svCHeadB = {
+  \tag #'head {
+    bes4-. bes2-> aes4->( | %97
+    bes4-^) r4 r2 | %98
+    g4-. g2-> f4->( | %99
+    g4-^) r4 r2 | %100
+  }
+  \tag #'tail {
+    aes4-. aes2-> g4( | %101
+    aes2 bes->) | %102
+    aes4--\< aes2-- g4( | %103
+    ees2->\! c) | %104
+  }
+}
+
+svCHeadAlt = {
+  \tag #'fir {
+    bes4-. ees2-> bes4 | %105
+    ees2 f-> | %106
+  }
+  \tag #'sec {
+    bes4-. ees-> r bes | %107
+    aes2-> f | %108
+  }
+  \tag #'thir {
+    bes4-. ees2-> bes4 | %109
+    ees-- f-. g-. bes-. | %110
+    ces1-> ~ | ces1 | %111-112
   }
 }
 
@@ -329,7 +420,7 @@ avFanfare = {
   fis2 d4 gis4~ |
     gis4 d fis4. fis8 |
     d4 ais'2.\< | 
-    r1\!\fermata | 
+    r2\! r2\fermata | 
 }
 
 avVamp ={
@@ -466,13 +557,13 @@ avTransTwo = {
   %ends on beat 1
   r ees8-. ees-. ees4-. ees-. | %3
   r f2-> f4 | %4
-  f?4-. 
+  f!4-. 
 }
 
 avTransThree = {
   \varLabel "avTransThree"
   %starts on beat 2
-  d8-. \mp d-. d4-. d-. | %5
+  d!8-. \mp d-. d4-. d-. | %5
   r ees4-> r2 | %6
   r4 d8-. d-. d4-. d-. | %7
   r ees-> r %8
@@ -482,7 +573,7 @@ avDevOne = {
   \varLabel "avDevOne"
   % starts beat 4
   r4 |
-  d r ees r |
+  r d r ees |
   r f r4. ees!8( |
   e4) r4 r2 |
 }
@@ -490,6 +581,16 @@ avDevOne = {
 avDevOneTag = {
   \varLabel "avDevOneTag"
   ees!4-. c2.-> |
+}
+
+avDevTwo = {
+  % trumpets: chormatic "laugh"
+  c8-- \stopped \< \glissando |
+  <<
+    { des4-.\! c-. b-. bes-. }
+    { s8\open s8\stopped s\open s8\stopped s\open s8\stopped s\open s\stopped}
+  >>
+  a4-.\> \halfopen aes-.\stopped g-.\stopped ges-.\!\stopped |
 }
 
 avDevThree = {
@@ -509,36 +610,92 @@ avBHeadAalt = {
   \tag #'head {
     <<
       \tag #'upper {
-        r4 a4-. r a4-. |
-        r4 b-. r cis-. |
-        r a-. r a-. |
-        r d-. r cis-. |
-        r a2->
+        %\time 6/8
+        r4 a8-. r4 a8-. |
+        r4 b8-. r4 cis8-. |
+        r4 a8-. r4 a8-. |
+        r4 d8-. r4 cis8-. |
+        r4 a8-> ~ a4
       }
       \tag #'lower {
-        r4 fis-. r fis-. |
-        r g-. r a-. |
-        r fis-. r fis-. |
-        r b-. r a-. |
-        r fis2->
+        %\time 6/8
+        r4 fis8-. r4 fis8-. |
+        r4 g8-. r4 a8-. |
+        r4 fis8-. r4 fis8-. |
+        r4 b8-. r4 a8-. |
+        r4 fis8-> ~ fis4
       }
     >>
   }
   \tag #'tail {
     <<
       \tag #'upper {
-        r4 |
-        r b-. r d-. |
+        a8 |
+        %cut time
+        \time 2/2
+        r4 b-. r d-. |
         r ees-. ees4.-> d8 |
         ees4-. f~-> f8 g8 aes4-. |
       }
       \tag #'lower {
-        r4 |
-        r g-. r a-. |
+        fis8 |
+        %cut time
+        \time 2/2
+        r4 g-. r a-. |
         r c-. c4.-> bes8 |
         c4-. d~-> d8 ees8 f4-. |
       }
     >>
+  }
+}
+
+avCHeadB = {
+  \tag #'head {
+    \tag #'upper {
+      g4-. r r g( | %97
+      ees-.) r f-> r | %98
+      d-. r r d-- | %99
+      d-. r d-> r | %100
+    }
+    \tag #'lower {
+      ees4-. r r ees( | %97
+      c-.) r d-> r | %98
+      b-. r r b( | %99
+      c-.) r b-> r |%100
+    }
+  }
+  \tag #'tail {
+    \tag #'upper {
+      r4 f-. \mp  r f-. | %101
+      r f-. r g-. | %102
+      r c2-- b4--( | %103
+      aes->) aes-. r ees-. | %104
+    }
+    \tag #'lower {
+      r4 des-. \mp r des-. | %101
+      r des-. r ees-. | %102
+      r f2-- d4--( | %103
+      c->) c-. r aes-. | %104
+    }
+  }
+}
+
+avCHeadAlt = {
+  \tag #'head {
+    \tag #'upper {
+      r4 bes-. r bes-. | %105
+      r c-. r d-. | %106
+      r bes-. r bes-. | %107
+      r ees-. r d-. | %108
+      r bes-. r % r %109
+    }
+    \tag #'lower {
+      r4 g-. r g-. | %105
+      r aes-. r bes-. | %106
+      r g-. r g-. | %107
+      r c-. r bes-. | %108
+      r g-. r % r %109
+    }
   }
 }
 
@@ -564,9 +721,9 @@ tvVamp = {
 
 tvHeadB = {
   \varLabel "tvHeadB"
-  r1 |
+  R1 |
   r4 d8 d a'2-> |
-  r1 |
+  R1 |
   r4 fis8 fis b2-> |
   %Tail
     \tag #'upper {
@@ -585,28 +742,28 @@ tvHeadB = {
 
 tvHeadAalt = {
   \tag #'head {
-    r1 |
+    R1 |
     b4--\ff c-^ r2 |
-    r1 |
+    R1 |
     c4-- a-^ r2 |
-    r1 |
+    R1 |
   }
   \tag #'tail {
     \tag #'one {
       %r4 c, r d |
-      r1 |
-      r1 |
+      R1 |
+      R1 |
       aes4( bes2) r4 |
     }
     \tag #'two {
       %r4 c, r d |
-      r1 |
+      R1 |
       r2 des,2~ |
       des2. r4 |
     }
     \tag #'threeFour {
       %r4 e r d |
-      r1 |
+      R1 |
       ees1~ |
       ees2. r4 |
     }
@@ -642,7 +799,7 @@ tvFirstTrans = {
 
 tvTransOne = {
   \varLabel "tvTransOne"
-  r4 g8-. g-. g4-. g-. | %1
+  g8-. g-. g4-. g-. | %1
   r a-. r a-. | %2
 }
 
@@ -651,7 +808,7 @@ tvTransTwo = {
   %ends on beat 1
   r b8-. b-. b4-. b-. | %3
   r des2-> des4 | %4
-  d4
+  d!4
 }
 
 tvTransThree = {
@@ -679,6 +836,15 @@ tvDevThree = {
   r2. r8 b( |
   c)-. bes( b)-. a( bes)-. aes( a)-. fis( |
   g4)-.
+}
+
+tvCHeadB = {
+  \tag #'head {
+    R1 | %97
+    r4 bes8-. bes-. f'2-> | %98
+    R1 | %99
+    r4 d8-. d-. g2-> | %100
+  }
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -714,27 +880,32 @@ bvHeadB = {
 
 bvHeadAalt = {
   \varLabel "bvHeadAalt"
-  \repeat unfold 5 { g4 r d r | } %5
+  \repeat unfold 2 { g4 r d r | r g-^ r d-> \sfz | } %4
+  g r d r |
   g2 d2 | %6
   ees2 bes'2 | ees2 ees,2 | %8
 }
 
 bvHeadOut = {
   \varLabel "bvHeadOut"
-  a4 r r2 | r1 | %2
+  a4 r r2 | R1 | %2
   d2. d4 |  %3
 }
 
 bvFirstTrans = {
   \varLabel "bvFirstTrans"
   g4 r d r | g r d' r | %2
-  b r fis r | b-. b2-> b4 | %4
+  b r fis r | b-. des2-> b4 | %4
   bes?4 r f\mp r | bes r4 r2 | %6
-  bes4 r f r | bes r2. | %8
+  bes4 r f r | bes r r2 | %8
 }  
    
 bvBHeadAalt = {
-  \repeat unfold 5 { d4 r a r | }
+  %6/8 time
+  %\time 2/2
+  \repeat unfold 5 { d4-. r8 a4-. r8 | }
+  %cut time
+  %\time 6/8
   d4 r2 d4 |
   bes1~\fp\< |
   bes2. r4\! |
@@ -750,3 +921,29 @@ bvDevThree = {
   g4)-.
 
 }
+
+bvCHeadB = {
+  \tag #'head {
+    \repeat unfold 2 { ees4 r bes r | } %97-98
+    g' r d r | %99
+    g r d r | %100
+  }
+  \tag #'tail {
+    des r aes r | %101
+    des r aes r | %102
+    f' f2 g4 | %103
+    aes4 r bes, r | %104
+  }
+}
+
+bvCHeadAlt = {
+  \tag #'head {
+    ees4 \mf r bes r | %105
+    \repeat unfold 5 { ees4 r bes r | }  
+  }
+  \tag #'tail {
+    ces4 r ges r |
+    ces4 r ges r4 |
+  }
+}
+

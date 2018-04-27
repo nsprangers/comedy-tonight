@@ -22,8 +22,23 @@
 \include "score_staves.ily"
 
 scoreBreaks = {
-  \repeat unfold 15 { s1*8 \break }
-
+  \repeat unfold 5 { s1*8 \break } %40
+  s1*7 %47
+  \break
+  s1*8 %55
+  \break
+  s1*8 %63
+  \break
+  s1*8 %71
+  \break
+  s1*9 %80
+  \break
+  \time 6/8
+  \repeat unfold 5 { s2. | }
+  \time 2/2
+  s1*3
+  \break
+  \repeat unfold 4 { s1*8 \break }
 }
 
 scoreGlobalMarksStaff = \new Staff
@@ -150,7 +165,7 @@ scoreGlobalMarksStaff = \new Staff
 
     \context {
       \Score
-      %\override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1 32)
+      %\override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1 16)
     }
 
     indent = 1.5\cm
@@ -159,10 +174,10 @@ scoreGlobalMarksStaff = \new Staff
 
   } % layout
 
-  \midi {
+  %{\midi {
     \context {
       \Score
       midiChannelMapping = #'instrument
     }
-  }
+  } %}
 } % score
