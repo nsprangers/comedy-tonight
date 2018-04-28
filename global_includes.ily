@@ -2,7 +2,7 @@
 
 \header {
   title = "Comedy Tonight"
-  dedication = "MUY 452 Orchestration Project"
+  %dedication = "MUY 452 Orchestration Project"
   composer = "Stephen Sondheim"
   arranger = "arr. Nathan Sprangers"
   copyright = "Spring 2018"

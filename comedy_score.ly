@@ -60,10 +60,10 @@ scoreGlobalMarksStaff = \new Staff
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Formatting Blocks
 
-#(set-global-staff-size 14)
+#(set-global-staff-size 10)
 
 \paper {
-  #(set-paper-size "11x17")
+  #(set-paper-size "letter")
   systems-per-page = #1
   %system-separator-markup = \slashSeparator
   %page-breaking = #ly:page-turn-breaking
@@ -174,7 +174,7 @@ scoreGlobalMarksStaff = \new Staff
 
   } % layout
 
-  %{\midi {
+  \midi {
     \context {
       \Score
       midiChannelMapping = #'instrument

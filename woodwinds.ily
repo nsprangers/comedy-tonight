@@ -81,6 +81,7 @@ fluteOneNotes = \relative c'' {
   \relative aes'' \keepWithTag #'tail \svCHeadB %104
   \relative bes'' \keepWithTag #'fir \svCHeadAlt %106
   R1*2 | %108
+  \relative bes' \keepWithTag #'thir \svCHeadAlt %112
 }
 
 fluteTwoNotes = \relative c'' {
@@ -123,6 +124,8 @@ fluteTwoNotes = \relative c'' {
   \relative bes'' \keepWithTag #'head \tvCHeadB %100
   \relative aes'' \keepWithTag #'tail \svCHeadB %104
   \relative bes'' \keepWithTag #'fir \svCHeadAlt %106
+  R1*2 | %108
+  \relative bes' \keepWithTag #'thir \svCHeadAlt %112
 }
 
 oboeNotes = \relative c''{
@@ -184,7 +187,8 @@ bassoonNotes = \relative c {
   \relative ees \keepWithTag #'(head lower) \avCHeadB %100
   \relative aes \keepWithTag #'tail \svCHeadB %104
   R1*2 | %106
-  \relative bes \keepWithTag #'sec \svCHeadAlt %104
+  \relative bes \keepWithTag #'(sec ) \svCHeadAlt %108
+  \relative bes, \keepWithTag #'(thir ) \svCHeadAlt %112
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -293,8 +297,8 @@ clarinetThreeNotes = \relative c' {
   \relative a \keepWithTag #'(second third fourth fifth) \svTransC %96
   \relative ees' \keepWithTag #'(head lower) \avCHeadB %100
   \relative aes' \keepWithTag #'tail \svCHeadB %104
-  \relative bes' \keepWithTag #'fir \svCHeadAlt %106
-  \relative bes' \keepWithTag #'(sec thir) \svCHeadAlt %112
+  \relative bes \keepWithTag #'fir \svCHeadAlt %106
+  \relative bes \keepWithTag #'(sec thir) \svCHeadAlt %112
 }
 clarinetThreeMusic = { \clarinetThreeNotes }
 
@@ -370,6 +374,7 @@ altoSaxOneNotes = \relative c' {
   \relative bes' \keepWithTag #'head \svCHeadB %100
   \relative aes' \keepWithTag #'tail \svCHeadB %104
   \relative g' \keepWithTag #'(head lower) \avCHeadAlt %109
+  \relative fes' \keepWithTag #'upper \tvCHeadAlt %112
 }
 
 altoSaxTwoNotes = \relative c' {
@@ -413,6 +418,7 @@ altoSaxTwoNotes = \relative c' {
   \relative g' \keepWithTag #'(head upper) \avCHeadB %100
   \relative f' \keepWithTag #'(tail upper) \avCHeadB %104
   \relative bes \keepWithTag #'(head upper) \avCHeadAlt %109
+  \relative des' \keepWithTag #'lower \tvCHeadAlt %112
 }
 
 tenorSaxNotes = {
