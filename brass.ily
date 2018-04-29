@@ -37,7 +37,7 @@ trumpetOneNotes = \relative c'' {
   r2 r4. \mf %61
   \relative c'' \avDevTwo %63
   \textLengthOn
-  <> -\markup "senza sord."
+  <> -\markup \italic "senza sord."
   R1*4 | %67
   \textLengthOff
   r2.
@@ -50,8 +50,7 @@ trumpetOneNotes = \relative c'' {
   \time 6/8
   a'8-. \f r d16 d d4-> a16[ a] | %81
   d8[ b16 b d8] e16[ e a,8 e'] | %82
-  r4. r4. |
-  r4. r4. |
+  R2.*2 |
   %r4 d16[ d] d4 a16 a | %83
   %b8[ d16 d b8] e8[ cis16 cis e8]  | %84
   r4 d16 d d4 %85
@@ -101,7 +100,7 @@ trumpetTwoNotes = \relative c'' {
   r2 r4. \mf %61
   \relative c'' \avDevTwo %63
   \textLengthOn
-  <> -\markup "senza sord."
+  <> -\markup \italic "senza sord."
   R1*4 | %67
   r2.
   << { s4 \ff } { \relative f'' \svShoutA } >>
@@ -115,8 +114,7 @@ trumpetTwoNotes = \relative c'' {
   %r4 d16 d d4 a16 a | %83
   %e'8 cis16 cis e8 | %84
   %r4 a,16 a a4 %85
-  r4. r4. |
-  r4. r4. |
+  R2.*2|
   r4 d''16[ d] d4 a16 a | %83
   b8[ d16 d b8] e8[ cis16 cis e8]  | %84
   r4 a16 a a4 %85
@@ -151,12 +149,15 @@ trumpetThreeNotes = \relative c'' {
   r4 r2 | %48
   R1*8 | %56
   r4 g,-> \glissando f-. r | %57
-  R1 ^\markup "wah-wah" | %58
-  R1*2 | %60
+  \textLengthOn
+  <> -\markup "Harmon stem in"
+  R1*3 | %60
+  \textLengthOff
   r2 r4. \mf %61
   \relative c'' \avDevTwo %63
-  R1 ^\markup "senza sord." | %64
-  R1*3 | %67
+  \textLengthOn
+  <> -\markup \italic "senza sord."
+  R1*4 | %67
   r2.
   << { s4 \ff } { \relative f' \svShoutA } >>
   \relative f' \svShoutB
@@ -233,7 +234,7 @@ hornTwoNotes = \relative c' {
   \relative fis \keepWithTag #'(tail lower) \avBHeadAalt
   R1*4 | %92
   \relative a' \keepWithTag #'(second third fourth fifth) \svTransC %96
-  \relative ees \keepWithTag #'(head upper) \avCHeadB %100
+  \relative g' \keepWithTag #'(head upper) \avCHeadB %100
   \relative des' \keepWithTag #'(tail lower) \avCHeadB %104
   \relative bes \keepWithTag #'(head upper) \avCHeadAlt %109
   \relative des' \keepWithTag #'lower \tvCHeadAlt %112
@@ -454,10 +455,13 @@ tubaNotes = \relative c, {
   c,8
   \relative aes,, \keepWithTag #'(third fourth)
       \svDevTwo %63
+  \textLengthOn
   R1*17 |
+  \textLengthOff
   \relative d \bvBHeadAalt
   R1*2 | %90
   \relative a,, \keepWithTag #'first \svTransC %92
+  \once \override MultiMeasureRest.minimum-length = #15
   R1*3 | %95
   \relative a,, \keepWithTag #'fifth \svTransC %96
   \relative ees, \bvCHeadB %104

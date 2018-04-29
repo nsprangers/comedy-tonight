@@ -5,9 +5,9 @@
   %dedication = "MUY 452 Orchestration Project"
   composer = "Stephen Sondheim"
   arranger = "arr. Nathan Sprangers"
-  copyright = "Spring 2018"
+  %copyright = "Spring 2018"
   % Default LilyPond tagline:
-  tagline = ##t
+  tagline = ##f
 }
 
 layoutCommon = {

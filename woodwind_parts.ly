@@ -1,59 +1,82 @@
 \version "2.18.2"
 
-\include "global_includes.ily"
-%\include "woodwinds.ily"
-\include "brass.ily"
-%\include "percussion.ily"
+\include "woodwinds.ily"
+\include "inst_part.ily"
 
-\pointAndClickOff
+instName = "Piccolo"
+transFrom = c
+transTo = c,
+instNotes = \piccoloNotes
+\include "inst_bookpart.ily"
 
-%% Instrument Staves
+instName = "Flute 1"
+transFrom = c
+transTo = c
+instNotes = \fluteOneNotes
+\include "inst_bookpart.ily"
 
-partsMarks = {
-  <<
-    \keyChanges
-    \globalMarks
-  >>
-}
+instName = "Flute 2"
+transFrom = c
+transTo = c
+instNotes = \fluteTwoNotes 
+\include "inst_bookpart.ily"
 
-#(set-global-staff-size 18)
+instName = "Oboe"
+transFrom = c
+transTo = c
+instNotes = \oboeNotes 
+\include "inst_bookpart.ily"
 
-\paper {
-  #(set-paper-size "letter")
-  ragged-last-bottom = ##f
-  print-page-number = ##f
-}
+instName = "Bassoon"
+transFrom = c
+transTo = c
+instNotes = { \clef bass \bassoonNotes }
+\include "inst_bookpart.ily"
 
-\layout {
-  \context {
-    \Score
-      \compressFullBarRests
-      \override MultiMeasureRest.expand-limit = #1
-      %\override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1 8)
-  }
-}
+instName = "Bb Clarinet 1"
+transFrom = bes
+transTo = c'
+instNotes = \clarinetOneNotes
+\include "inst_bookpart.ily"
 
-\bookpart {
-  \score {
-    \new Staff \with {
-      instrumentName = "Bb Trumpet 1"
-    }
-    \transpose bes c'
-      <<
-      \partsMarks
-      \trumpetOneNotes
-      >>
-  }
-}
-\bookpart {
-  \score {
-    \new Staff \with {
-      instrumentName = "Bb Trumpet 2"
-    }
-    \transpose bes c'
-      <<
-      \partsMarks
-      \trumpetTwoNotes
-      >>
-  }
-}
+instName = "Bb Clarinet 2"
+transFrom = bes
+transTo = c'
+instNotes = \clarinetTwoNotes
+\include "inst_bookpart.ily"
+
+instName = "Bb Clarinet 3"
+transFrom = bes
+transTo = c'
+instNotes = \clarinetThreeNotes
+\include "inst_bookpart.ily"
+
+instName = "Bb Bass Clarinet"
+transFrom = bes
+transTo = c''
+instNotes = \bassClarinetNotes
+\include "inst_bookpart.ily"
+
+instName = "Eb Alto Saxophone 1"
+transFrom = ees
+transTo = c'
+instNotes = \altoSaxOneNotes
+\include "inst_bookpart.ily"
+
+instName = "Eb Alto Saxophone 2"
+transFrom = ees
+transTo = c'
+instNotes = \altoSaxTwoNotes
+\include "inst_bookpart.ily"
+
+instName = "Bb Tenor Saxophone"
+transFrom = bes
+transTo = c''
+instNotes = \tenorSaxNotes
+\include "inst_bookpart.ily"
+
+instName = "Eb Baritone Saxophone"
+transFrom = ees
+transTo = c''
+instNotes = \bariSaxNotes
+\include "inst_bookpart.ily"

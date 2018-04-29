@@ -71,9 +71,10 @@ globalMarks = {
   %\mark \default %56
   s1*4
   \mark \default %60
-  s1*4 %63
+  %s1*4 %63
   %\mark \default %64
-  s1*5
+  %s1*5
+  s1*9
   \mark \default %69
   s1*8 | %76
   \mark \default %77
@@ -99,7 +100,7 @@ globalMarks = {
   \mark \default %89
   s1*4 |
   \tempo "Poco Rit."
-  s1*3 |
+  s1*3
   \tempo "Molto Rit."
   s1 |
   \mark \default %97
@@ -108,7 +109,7 @@ globalMarks = {
   \tempo "Accel."
   s1*6
   \mark \default %105
-  \tempo "Faster than Before" 2 = 120
+  \tempo "Faster" 2 = 120
   s1*8
   \mark \default %113
   s1*8
@@ -187,7 +188,7 @@ svHeadA = {
   \tag #'main {
     d4-. \mf g2-> d4 | g2 a2-> | %2
     d,4-. g2-> d4 | c2 a2-> | %4
-    d4 g2-> d4 | c'4.-> b8 a4 g4 | %6
+    d4-. g2-> d4 | c'4.-> b8 a4 g4 | %6
   }
   \tag #'tag {
     a8-. a-. a4-> r4 g-> | a-. r4 d-^\f r4 | %8
@@ -201,7 +202,7 @@ svHeadB = {
   b4-. b2-> a4 | b1 | %4
     }
   \tag #'tail {
-  c4--\( _\markup \italic "espress." c2-- b4-- | c2-- d2-> | %6
+  c4--\( _\markup \italic "espress." c2 b4 | c2 d2-- | %6
   c4--\< c2-- b4-- | g-.\!\) r e2-> | %8
   }
 }
@@ -239,7 +240,7 @@ svTransTwo = {
   %\varLabel "svTransTwo"
   %ends on beat 1
   r4 fis8-. fis-. fis4-. fis-. |
-  r aes2-> b4 |
+  r aes2-> \sfz b4 |
   bes?4-^ 
 }
 
@@ -345,11 +346,11 @@ svTransB = {
 svBHeadAalt = {
   \tag #'head {
     %\time 6/8
-    a4-. d8-> ~ d4 a8 |
+    a8-. r d-> ~ d4 a8 |
     d4.-> e-> |
-    a,4-. d8-> ~ d4 a8 |
+    a,8-. r d-> ~ d4 a8 |
     g4.-> e-> |
-    a4-. d8-> ~ d4
+    a8-. r d-> ~ d4
   }
   \tag #'tail {
     a8 |
@@ -368,11 +369,11 @@ svTransC = {
     a2 b-> |
   }
   \tag #'second {
-    a8-. a-. a2-> 
+    a8-. a-. a4-> ~ a8 r8
   }
   \tag #'third {
-    g4 |
-    a8-. a-. a2->
+    g4->( |
+    a8-.) a-. a4-> ~ a8 r8
   }
   \tag #'fourth {
     g4->( |
@@ -392,9 +393,9 @@ svCHeadB = {
   }
   \tag #'tail {
     aes4-. aes2-> g4( | %101
-    aes2 bes->) | %102
-    aes4--\< aes2-- g4( | %103
-    ees2->\! c) | %104
+    aes2) bes->( | %102
+    aes4--)\< aes2-- g4 | %103
+    ees2->\! c | %104
   }
 }
 
@@ -447,9 +448,9 @@ avHeadA = {
     \tag #'lower {
       %\tag #'labels { <> _\markup \smaller \varName "avHeadA_lower" }
       \tag #'main {
-        r4 b2-> \mp b4 | r c r d | %2
-      r4 b2-> b4 | r e r d | %4
-      r4 b2-> b4 | r e r e | %6
+        r4 b2-> \mp b4-. | r c-. r d-. | %2
+      r4 b2-> b4-. | r e-. r d-. | %4
+      r4 b2-> b4-. | r e-. r e-. | %6
       }
       \tag #'tag {
       c8-. c-. c4-> r4 g-> | a-. r c-^\f r4 | %8
@@ -510,14 +511,14 @@ avHeadAalt = {
       r4 d2-> d4-. | r4 e-. r fis-. | %2
       r4 d2-> d4-. | r g-. r fis-. | %4
       r4 d2-> d4 | e2 g2 | %6
-      aes4 r aes4. g8 | aes4 bes c des | %8
+      aes4-^ r aes4.-> g8-. | aes4-. \<  bes-.  c-.  des-.  \! | %8
     }
     \tag #'lower {
       %\tag #'labels { <>_\markup \smaller \varName "avHeadAalt_lower" }
       r4 b2-> b4 | r c r d | %2
       r4 b2-> b4 | r e r d | %4
       r4 b2-> b4 | c2 d | %6
-      f4 r f4. ees8 | f4 g aes bes | %8
+      f4-^ r f4.-> ees8-.  | f4-.\<  g-.  aes-.  bes-. \!  | %8
     }
   >>
 }
@@ -558,7 +559,7 @@ avTransTwo = {
   %\varLabel "avTransTwo"
   %ends on beat 1
   r ees8-. ees-. ees4-. ees-. | %3
-  r f2-> f4 | %4
+  r f2-> \sfz f4 | %4
   f!4-. 
 }
 
@@ -730,18 +731,18 @@ tvVamp = {
 tvHeadB = {
   %\varLabel "tvHeadB"
   R1 |
-  r4 d8 d a'2-> |
+  r4 d8-. \ff d-. a'2-> |
   R1 |
-  r4 fis8 fis b2-> |
+  r4 fis8-. fis-. b2-> |
   %Tail
     \tag #'upper {
-      r4 f-. r f-. | %5
+      r4 f-. \mf r f-. | %5
       r f-. r g-. | %6
       r a2--\< fis4-- | %7
       e-.\! r c2-> | %8
     }
     \tag #'lower {
-      r4 a-. r a-. | %5
+      r4 a-. \mf r a-. | %5
       r a-. r b-. | %6
       r e2--\< dis4-- | %7
       c-.\! r g2-> | %8
@@ -780,16 +781,16 @@ tvHeadAalt = {
 
 tvHeadAout = {
   \tag #'upper {
-    g2 r4 g |
-    a2. r4 |
-    c4 r2 b4 |
-    g4
+    g2-> r4 g |
+    a2.-> r4 |
+    c4-. r4 r b4-> |
+    g4-.
   }
   \tag #'lower {
-    c2 r4 c |
-    c2. r4 |
-    e4 r2 d4 |
-    g4 
+    c2-> r4 c |
+    c2.-> r4 |
+    e4-. r2 d4-> |
+    g4-. 
   }
 }
 
@@ -815,7 +816,7 @@ tvTransTwo = {
   %\varLabel "tvTransTwo"
   %ends on beat 1
   r b8-. b-. b4-. b-. | %3
-  r des2-> des4 | %4
+  r des2-> \sfz des4 | %4
   d!4
 }
 
@@ -921,7 +922,7 @@ bvHeadOut = {
 bvFirstTrans = {
   %\varLabel "bvFirstTrans"
   g4 r d r | g r d' r | %2
-  b r fis r | b-. des2-> b4 | %4
+  b r fis r | b-. des2-> \sfz b4 | %4
   bes?4 r f\mp r | bes r4 r2 | %6
   bes4 r f r | bes r r2 | %8
 }  

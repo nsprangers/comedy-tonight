@@ -25,13 +25,15 @@ piccoloNotes = \relative c'''' {
   r2.
   R1*7
   r2. f4-. | %56
-  r2.
-  \relative f'' 
-      \keepWithTag #'(first second third fourth) \svDevTwo
-  s1*17
+  R1*2 | %58
+  c8
+  \relative aes''' \keepWithTag #'(third fourth) \svDevTwo %62
+  R1*17 %80
   \relative a''' \removeWithTag #'tail \svBHeadAalt
   \relative b''' \keepWithTag #'(tail upper) \avBHeadAalt
-  R1*7 | %93
+  R1*4 | %92
+  \once \override MultiMeasureRest.minimum-length = #15
+  R1*3 | %95
   \relative a''' \keepWithTag #'fifth \svTransC %96
   \relative bes'' \keepWithTag #'head \tvCHeadB %100
   R1*4 | %104
@@ -75,7 +77,9 @@ fluteOneNotes = \relative c'' {
   \relative a'' \svTransB
   \relative a'' \removeWithTag #'tail \svBHeadAalt
   \relative g'' \keepWithTag #'(tail lower) \avBHeadAalt
-  R1*7 | %93
+  R1*4 | %92
+  \once \override MultiMeasureRest.minimum-length = #15
+  R1*3 | %95
   \relative a''' \keepWithTag #'fifth \svTransC %96
   \relative bes'' \keepWithTag #'head \tvCHeadB %100
   \relative aes'' \keepWithTag #'tail \svCHeadB %104
@@ -119,7 +123,9 @@ fluteTwoNotes = \relative c'' {
   \relative a'' \svTransB
   \relative a'' \removeWithTag #'tail \svBHeadAalt
   \relative b' \keepWithTag #'(tail upper) \avBHeadAalt
-  R1*7 | %93
+  R1*4 | %92
+  \once \override MultiMeasureRest.minimum-length = #15
+  R1*3 | %95
   \relative a'' \keepWithTag #'fifth \svTransC %96
   \relative bes'' \keepWithTag #'head \tvCHeadB %100
   \relative aes'' \keepWithTag #'tail \svCHeadB %104
@@ -324,6 +330,7 @@ bassClarinetNotes = {
   \relative d \bvBHeadAalt
   R1*2 | %90
   \relative a, \keepWithTag #'first \svTransC %92
+  \once \override MultiMeasureRest.minimum-length = #15
   R1*3 | %95
   \relative a, \keepWithTag #'fifth \svTransC %96
   \relative ees \bvCHeadB %104
@@ -351,7 +358,9 @@ altoSaxOneNotes = \relative c' {
     } %24
   \relative d' \keepWithTag #'upper \tvHeadB %28
   \relative b' \removeWithTag #'tail \tvHeadAalt %40
-  g,4 a b d | aes'4 r aes4. g8 | aes4 bes c des |
+  g,4 \mf a b d | %38
+  aes4-^ r aes4.-> g8-. | %39
+  aes4-. \<  bes-.  c-.  des-.  \! | %40
   \relative g' \keepWithTag #'upper \tvHeadAout
   \relative b' \avTransOne
   \relative dis'' \avTransTwo
@@ -395,7 +404,9 @@ altoSaxTwoNotes = \relative c' {
     } %24
   \relative d' \keepWithTag #'upper \tvHeadB %28
   \relative b' \removeWithTag #'tail \tvHeadAalt %40
-  g,4 a b d | f4 r f4. ees8 | f4 g aes bes |
+  g,4 \mf a b d | %38
+  f4-^ r f4.-> ees8-.  | %39
+  f4-.\<  g-.  aes-.  bes-. \!  | %40
   \relative c' \keepWithTag #'lower \tvHeadAout
   \relative d' \svTransOne
   \relative fis' \svTransTwo
@@ -490,6 +501,7 @@ bariSaxNotes = {
     \relative d \bvBHeadAalt
     R1*2 %90
     \relative a, \keepWithTag #'first \svTransC
+  \once \override MultiMeasureRest.minimum-length = #15
     R1*3 | %95
     \relative a, \keepWithTag #'fifth \svTransC %96
   \relative ees \bvCHeadB %104
