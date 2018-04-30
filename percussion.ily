@@ -81,7 +81,7 @@ xylophoneNotes = \relative d'' {
   R1 | %17
   r4 d8-.\mf e-. fis-. a-. b-. c-. | %18
   d4-> r4 r2 | %19
-  r8 b c a b g a fis | %20
+  r8 b c a b a g fis | %20
   \override Glissando.style = #'zigzag
   d2 r4 d4 \glissando | %21
   c'4. b8 a4 g | %22
@@ -147,10 +147,6 @@ percussionOneNotes = \drummode {
   R1*12 | %63
   gui1:32 ~ \f ^\markup "ratchet" | %64
   gui8:32 gui r4 r2 | %65
-  r4. bol8 ^\tweak self-alignment-X #CENTER ^\markup "bongos w/ mallets"
-    \tuplet 3/2 { boh8[ bol boh] }
-    \tuplet 3/2 { bol8:32 boh: bol: } | %66
-  boh4 r4 r2 | %67
 }
 
 snareDrumNotes = \drummode {
@@ -304,7 +300,13 @@ percussionTwoNotes = \drummode {
       R1 | %57
     }
   >>
-  R1*23 | %80
+  R1*8 | %65
+  r4. bol8 ^\tweak self-alignment-X #CENTER ^\markup "bongos w/ mallets"
+    \tuplet 3/2 { boh8[ bol boh] }
+    \tuplet 3/2 { bol8:32 boh: bol: } | %66
+  boh4 r4 r2 | %67
+  R1 | %68
+  R1*12 | %80
   \time 6/8
   <<
     { 

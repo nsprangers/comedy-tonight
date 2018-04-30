@@ -39,6 +39,14 @@ piccoloNotes = \relative c'''' {
   R1*4 | %104
   R1*4 | %108
   \relative bes'' \keepWithTag #'thir \svCHeadAlt %112
+  R1*5 | %117
+  f,4-> \f \< fis-> g-> gis-> | %118
+  bes8-. \ff bes-. bes2.-> ~ | %119
+  bes4-. r bes2-> | %120
+  ees1-> ~ | %121
+  ees2. r4 | %122
+  \relative c''' \oneTwoThree bes,2 | %125
+  bes'2-> r2 | %126
 }
 
 fluteOneNotes = \relative c'' {
@@ -86,6 +94,14 @@ fluteOneNotes = \relative c'' {
   \relative bes'' \keepWithTag #'fir \svCHeadAlt %106
   R1*2 | %108
   \relative bes' \keepWithTag #'thir \svCHeadAlt %112
+  R1*5 | %117
+  f,4-> \f \< fis-> g-> gis-> | %118
+  bes8-. \ff bes-. bes2.-> ~ | %119
+  bes4-. r bes2-> | %120
+  ees1-> ~ | %121
+  ees2. r4 | %122
+  \relative c'' \oneTwoThree r2 | %125
+  R1 | %126
 }
 
 fluteTwoNotes = \relative c'' {
@@ -132,6 +148,14 @@ fluteTwoNotes = \relative c'' {
   \relative bes'' \keepWithTag #'fir \svCHeadAlt %106
   R1*2 | %108
   \relative bes' \keepWithTag #'thir \svCHeadAlt %112
+  R1*5 | %117
+  f,4-> \f \< fis-> g-> gis-> | %118
+  bes8-. \ff bes-. bes2.-> ~ | %119
+  bes4-. r bes2-> | %120
+  ees1-> ~ | %121
+  ees2. r4 | %122
+  \relative c'' \oneTwoThree r2 | %125
+  R1 | %126
 }
 
 oboeNotes = \relative c''{
@@ -165,6 +189,14 @@ oboeNotes = \relative c''{
   R1*2 | %106
   \relative bes'' \keepWithTag #'sec \svCHeadAlt %104
   \relative bes' \keepWithTag #'thir \svCHeadAlt %112
+  R1*4 | %116
+  r2 c,2-> | %117
+  f4-> \f \< fis-> ~ fis2 | %118
+  b,8-. \ff b-. b2.-> ~ | %119
+  b4-> r bes2-> | %120
+  \svLastVamp %122
+  \restTwoThree r2 | %125
+  R1 | %126
 }
 
 bassoonNotes = \relative c {
@@ -195,6 +227,16 @@ bassoonNotes = \relative c {
   R1*2 | %106
   \relative bes \keepWithTag #'(sec ) \svCHeadAlt %108
   \relative bes, \keepWithTag #'(thir ) \svCHeadAlt %112
+  R1*2 | %114
+  fis,,1-> \mf | %115
+  c'-> | %116
+  f2-> b-> ~ | %117
+  b1 | %118
+  e8-. \ff e-. e2. ~ | %119
+  e4-. r f2-> | %120
+  \relative ees \bvLastVamp %122
+  \relative c \oneTwoThree r2 | %125
+  r2 ees,,4-> r | %126
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,6 +274,15 @@ clarinetOneNotes = \relative c''{
   \relative bes'' \svCHeadB %100
   \relative bes' \keepWithTag #'fir \svCHeadAlt %106
   \relative bes' \keepWithTag #'(sec thir) \svCHeadAlt %112
+  R1*4 | %116
+  r2 c,2-> \mf | %117
+  f4-> \f \< fis-> g-> gis-> | %118
+  bes8-. \ff bes-. bes2.-> ~ | %119
+  bes4-. r bes2-> | %120
+  ees1-> ~ | %121
+  ees2. r4 | %122
+  \relative c'' \oneTwoThree f,2 \glissando | %125
+  bes-> r | %126
 }
 
 clarinetTwoNotes = \relative c' {
@@ -268,6 +319,14 @@ clarinetTwoNotes = \relative c' {
   \relative aes'' \keepWithTag #'tail \svCHeadB %104
   \relative bes' \keepWithTag #'fir \svCHeadAlt %106
   \relative bes' \keepWithTag #'(sec thir) \svCHeadAlt %112
+  R1*4 | %116
+  fis,1-> \mf ~ | %117
+  fis4 g-> \f \< gis-> a-> | %118
+  c8-. \ff c-. c2.-> ~ | %119
+  c4-. r bes2-> | %120
+  \relative bes'' \svLastVamp %122
+  \relative c'' \restTwoThree r2 | %125
+  r2 ees,,4-> r | %126
 }
 clarinetTwoMusic = { \clarinetTwoNotes }
 
@@ -305,10 +364,18 @@ clarinetThreeNotes = \relative c' {
   \relative aes' \keepWithTag #'tail \svCHeadB %104
   \relative bes \keepWithTag #'fir \svCHeadAlt %106
   \relative bes \keepWithTag #'(sec thir) \svCHeadAlt %112
+  R1*4 | %116
+  r2 b,,2-> \mf | %117
+  fis'4-> g-> \f \< gis-> a-> | %118
+  b8-. \ff b-. b2.-> ~ | %119
+  b4-. r bes2-> | %120
+  \relative g'' \avLastVamp %122
+  \relative c'' \restTwoThree r2 | %125
+  r ees,,4-> r | %126
 }
 clarinetThreeMusic = { \clarinetThreeNotes }
 
-bassClarinetNotes = {
+bassClarinetNotes = \relative c {
   \transposition bes,
   \global
     \FanfareRest
@@ -335,6 +402,14 @@ bassClarinetNotes = {
   \relative a, \keepWithTag #'fifth \svTransC %96
   \relative ees \bvCHeadB %104
   \relative ees \bvCHeadAlt %112
+  R1*4 | %116
+  f1 \mf | %117
+  fis'4-> \f \< g-> gis-> a-> | %118
+  e8-. \ff e-. e2. ~ | %119
+  e4-. r f2-> | %120
+  \relative f \bvLastVamp %122
+  \relative c' \oneTwoThree r2 | %125
+  r2 ees,,4-> r | %126
 }
 
 
@@ -384,6 +459,15 @@ altoSaxOneNotes = \relative c' {
   \relative aes' \keepWithTag #'tail \svCHeadB %104
   \relative g' \keepWithTag #'(head lower) \avCHeadAlt %109
   \relative fes' \keepWithTag #'upper \tvCHeadAlt %112
+  R1*4 | %116
+  fis'2-> \mf c'-> | %117
+  f4-> \f \< fis-> g-> aes-> | %118
+  c,8-. \ff c-. c2. ~ | %119
+  c4-. r bes2-> | %120
+  ees1-> ~ | %121
+  ees2. r4 | %122
+  \relative c' \oneTwoThree r2 | %125
+  R1 | %126
 }
 
 altoSaxTwoNotes = \relative c' {
@@ -430,9 +514,17 @@ altoSaxTwoNotes = \relative c' {
   \relative f' \keepWithTag #'(tail upper) \avCHeadB %104
   \relative bes \keepWithTag #'(head upper) \avCHeadAlt %109
   \relative des' \keepWithTag #'lower \tvCHeadAlt %112
+  R1*4 | %116
+  fis1-> \mf ~ | %117
+  fis4 g-> \f \< gis-> a-> | %118
+  b8-. \ff b-. b2.-> ~ | %119
+  b4-. r bes2-> | %120
+  \svLastVamp %122
+  \relative c' \restTwoThree r2 | %125
+  R1 | %126
 }
 
-tenorSaxNotes = {
+tenorSaxNotes = \relative bes{
   \transposition bes,
   \global
     \FanfareRest
@@ -473,6 +565,16 @@ tenorSaxNotes = {
   \relative des' \keepWithTag #'(tail lower) \avCHeadB %104
   R1*4 | %108
   \relative bes \keepWithTag #'thir \svCHeadAlt %112
+  R1*2 | %114
+  c,1-> \mf | %115
+  b'1-> ~ | %116
+  b2 b2-> ~ | %117
+  b1 | %118
+  e8-. \ff e-. e2.-> ~ | %119
+  e4-. r f2-> | %120
+  \avLastVamp %122
+  \relative c' \restTwoThree r2 | %125
+  r2 ees,,4-> r | %126
 }
 
 bariSaxNotes = {
@@ -506,4 +608,14 @@ bariSaxNotes = {
     \relative a, \keepWithTag #'fifth \svTransC %96
   \relative ees \bvCHeadB %104
   \relative ees \bvCHeadAlt %112
+  R1*2 | %114
+  fis,1-> \mf | %115
+  c1-> | %116
+  f1-> ~ | %117
+  f1 | %118
+  fis8-. \ff fis-. fis2. ~ | %119
+  fis4-. r bes,2-> | %120
+  \relative ees \bvLastVamp %122
+  \relative c \restTwoThree r2 | %125
+  r2 ees,4-> r | %126
 }

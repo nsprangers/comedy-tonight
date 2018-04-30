@@ -2,7 +2,7 @@
 
 \include "comedy_music.ily"
 
-trumpetHeadAalt = \relative g' {
+trumpetHeadAalt = {
   R1 |
   r2 g8--( a b c |
   d4)-^ r4 r2 |
@@ -30,16 +30,12 @@ trumpetOneNotes = \relative c'' {
   r4 r2 | %48
   R1*8 | %56
   r4 d-> \glissando f,-. r | %57
-  \textLengthOn
   <> -\markup "Harmon stem in"
   R1*3 | %60
-  \textLengthOff
   r2 r4. \mf %61
   \relative c'' \avDevTwo %63
-  \textLengthOn
   <> -\markup \italic "senza sord."
   R1*4 | %67
-  \textLengthOff
   r2.
   << { s4 \ff } { \relative f'' \svShoutA } >>
   \relative f'' \svShoutB
@@ -60,17 +56,26 @@ trumpetOneNotes = \relative c'' {
   r2 r4 %94
   \relative a' \keepWithTag #'(fourth fifth) \svTransC
   \relative bes' \keepWithTag #'head \tvCHeadB %100
-  \textLengthOn
   <> -\markup "Harmon no stem"
   R1*4 | %104
-  \textLengthOff
   R1 | %105
   r2 g2-> | %106
-  \textLengthOn
   <> -\markup \italic "senza sord." 
   R1*5 | %111
-  \textLengthOff
   aes2 a->| %112
+  bes8-. \ff bes-. bes2-> aes4 | %113
+  bes2 c | %114
+  R1*2 | %116
+  r2 c,2-> \mf ~ | %117
+  c1 | %118
+  c8-. \ff c-. c2.-> ~ | %119
+  c4-. r bes2-> | %120
+  ees1-> ~ | %121
+  ees2. r4 | %122
+  \sOne %123
+  \sTwo %124
+  R1 | %125
+  bes'2-> r | %126
 }
 
 trumpetTwoNotes = \relative c'' {
@@ -93,13 +98,10 @@ trumpetTwoNotes = \relative c'' {
   r4 r2 | %48
   R1*8 | %56
   r4 bes,-> \glissando f-. r | %57
-  \textLengthOn
   <> -\markup "Harmon stem in"
   R1*3 | %60
-  \textLengthOff
   r2 r4. \mf %61
   \relative c'' \avDevTwo %63
-  \textLengthOn
   <> -\markup \italic "senza sord."
   R1*4 | %67
   r2.
@@ -127,21 +129,37 @@ trumpetTwoNotes = \relative c'' {
   \relative f' \keepWithTag #'(tail upper) \avCHeadB %104
   R1*7 | %111
   aes2 ges2-> | %112
+  ees2. \ff ees4 | %113
+  f1 | %114
+  R1*2 | %116
+  fis,1-> ~ \mf | %117
+  fis4 g-> \f \< gis-> a-> \! | %118
+  b8-.[ \ff b-.] b2. ~ | %119
+  b4-. r bes2-> | %120
+  \svLastVamp %122
+  R1 | %123
+  \sTwo %124
+  r2 bes2 | %125
+  ees-> r | %126
 }
 
-trumpetThreeNotes = \relative c'' {
+trumpetThreeNotes = \relative c' {
   \transposition bes
-    \global
-    <> \f \svFanfare
-    \relative c'' \tvVamp
-    R1*2 | %9
+  \global
+  <> \f \svFanfare
+  \relative c'' \tvVamp
+  R1*2 | %9
+  \relative d' {
     \repeat unfold 2 {
-      R1*7 | %16
-        r2 d=''4-^\f r4 | %17
+      R1*7 | %15/23
+        r2 d4-^\f r4 | %16/24
     }
-  \svHeadB
-  \trumpetHeadAalt
-  \octaveCheck d' \keepWithTag "trumpets" \svHeadAalt
+  }
+  \relative d' \keepWithTag #'head \svHeadB
+  c4--\( _\markup \italic "espress." c2 b4 | c2 d2-- | %6
+  c4--\< e2-- fis4-- | g-.\!\) r e2-> | %8
+  \relative g, \trumpetHeadAalt
+  \relative d' \keepWithTag "trumpets" \svHeadAalt
   \svHeadAout
   r2. |
   r1 |
@@ -149,13 +167,10 @@ trumpetThreeNotes = \relative c'' {
   r4 r2 | %48
   R1*8 | %56
   r4 g,-> \glissando f-. r | %57
-  \textLengthOn
   <> -\markup "Harmon stem in"
   R1*3 | %60
-  \textLengthOff
   r2 r4. \mf %61
   \relative c'' \avDevTwo %63
-  \textLengthOn
   <> -\markup \italic "senza sord."
   R1*4 | %67
   r2.
@@ -179,6 +194,18 @@ trumpetThreeNotes = \relative c'' {
   \relative des' \keepWithTag #'(tail lower) \avCHeadB %104
   R1*7 | %111
   fes2 ges-> | %112
+  aes2. \ff aes4 | %113
+  aes1 | %114
+  R1*2 | %116
+  fis1-> \mf ~ | %117
+  fis1 | %118
+  e8-.[ \ff e-.] e2. ~ | %119
+  e4-. r f2-> | %120
+  \avLastVamp %122
+  R1 | %123
+  \sTwo | %124
+  r2 bes,2 | %125
+  bes'-> r | %126
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,6 +237,18 @@ hornOneNotes = \relative c'{
   \relative f' \keepWithTag #'(tail upper) \avCHeadB %104
   \relative g' \keepWithTag #'(head lower) \avCHeadAlt %109
   \relative fes' \keepWithTag #'upper \tvCHeadAlt %112
+  aes2. \ff aes4 | %113
+  aes1 | %114
+  R1*2 | %116
+  fis1-> ~ \mf | %117
+  fis4 g-> \f \< gis-> a-> | %118
+  b8-.[ \ff b-.] b2. ~ | %119
+  b4-. r bes2-> | %120
+  \svLastVamp %122
+  R1 | %123
+  \sTwo %124
+  r2 bes, \glissando | %125
+  bes'-> r | %126
 }
 
 hornTwoNotes = \relative c' {
@@ -238,6 +277,18 @@ hornTwoNotes = \relative c' {
   \relative des' \keepWithTag #'(tail lower) \avCHeadB %104
   \relative bes \keepWithTag #'(head upper) \avCHeadAlt %109
   \relative des' \keepWithTag #'lower \tvCHeadAlt %112
+  ees2. \ff ees4 | %113
+  f1 | %114
+  R1*2 | %116
+  f,2-> \mf b-> ~ | %117
+  b1 | %118
+  e8-.[ \ff e-.] e2. ~ | %119
+  e4-. r f2-> | %120
+  \avLastVamp %122
+  R1 | %123
+  \sTwo %124
+  r2 bes, \glissando | %125
+  bes'-> r | %126
 }
 
 hornThreeNotes = \relative c' {
@@ -266,6 +317,18 @@ hornThreeNotes = \relative c' {
   \relative des' \keepWithTag #'(tail lower) \avCHeadB %104
   \relative g \keepWithTag #'(head lower) \avCHeadAlt %109
   \relative fes \keepWithTag #'upper \tvCHeadAlt %112
+  ees2. \ff ees4 | %113
+  f1 | %114
+  R1*2 | %116
+  f,1-> \mf ~ | %117
+  f1 | %118
+  fis8-. \ff fis-. fis2. ~ | %119
+  fis4-. r f2-> | %120
+  \relative ees' \tvLastVamp %122
+  R1 | %123
+  \relative c' \sTwo %124
+  r2 bes | %125
+  ees-> r | %126
 }
 
 hornFourNotes = \relative c' {
@@ -320,6 +383,18 @@ tromboneOneNotes = \relative d' {
   R1*4 | %104
   R1*6 | %110
   \relative des' \keepWithTag #'lower \tvCHeadAlt %112
+  ees'2. \ff ees4 | %113
+  f1 | %114
+  R1*2 | %116
+  f,2-> \mf b-> ~ | %117
+  b1 | %118
+  e8-.[ \ff e-.] e2. ~ | %119
+  e4-. r f2-> | %120
+  \tvLastVamp %122
+  R1 | %123
+  \relative c \sTwo | %124
+  r2 bes, | %125
+  ees-> r2 | %126
 }
 
 tromboneTwoNotes = \relative b {
@@ -358,6 +433,19 @@ tromboneTwoNotes = \relative b {
   R1*4
   R1*6 | %110
   \relative fes \keepWithTag #'upper \tvCHeadAlt %112
+  c2. \ff c4 | %113
+  c1 | %114
+  c,1-> \mf | %115
+  b'1-> ~ | %116
+  b1 ~ | %117
+  b1 | %118
+  fis8-.[ \ff fis-.] fis2. ~ | %119
+  fis4-. r f2-> %120
+  \relative ees \bvLastVamp %122
+  R1 | %123
+  \sTwo %124
+  r2 bes | %125
+  ees-> ees4-. r | %126
 }
 
 bassTromboneNotes = \relative g, {
@@ -397,6 +485,18 @@ bassTromboneNotes = \relative g, {
   R1*2 | %110
   ges'1-> ~ \mp | %111
   ges2 ces2-> | %112
+  f2. \ff f4 | %113
+  f1 | %114
+  fis,1-> | %115
+  c'-> ~ | %116
+  c ~ | %117
+  c | %118
+  fis8-. \ff fis-. fis2. ~ | %119
+  fis4-. r bes2-> | %120
+  \relative ees \bvLastVamp %122
+  \relative c \oneTwoThree
+  r2 | %125
+  r2 ees,,4-> r | %126
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -430,6 +530,19 @@ euphoniumNotes = \relative c' {
   \relative bes \svCHeadB %100
   R1*6 | %110
   \relative fes \keepWithTag #'upper \tvCHeadAlt %112
+  f2. \ff f4 | %113
+  f1 | %114
+  c1-> \mf | %115
+  f1-> | %116
+  f2-> b2-> ~| %117
+  b1 | %118
+  e8-. \ff e-. e2. ~ | %119
+  e4-. r f2-> | %120
+  \tvLastVamp %122
+  R1 | %123
+  \sTwo %124
+  r2 bes | %125
+  ees-> ees4-. r | %126
 }
 
 tubaNotes = \relative c, {
@@ -455,9 +568,7 @@ tubaNotes = \relative c, {
   c,8
   \relative aes,, \keepWithTag #'(third fourth)
       \svDevTwo %63
-  \textLengthOn
   R1*17 |
-  \textLengthOff
   \relative d \bvBHeadAalt
   R1*2 | %90
   \relative a,, \keepWithTag #'first \svTransC %92
@@ -470,6 +581,16 @@ tubaNotes = \relative c, {
   R1*2 | %110
   ges'1-> ~ \mp | %111
   ges2 ces,2 | %112
+  R1*2 | %114
+  fis1-> ~ | %115
+  fis1 ~ | %116
+  fis1 ~ | %117
+  fis1 ~ | %118
+  fis8-. r r4 r2 | %119
+  R1 | %120
+  <> \ff \bvLastVamp %122
+  \oneTwoThree r2 | %125
+  r ees4-> r | %126
 }
 
 doubleBassNotes = \relative c,,{
@@ -498,4 +619,10 @@ doubleBassNotes = \relative c,,{
   R1*6 | %110
   ges'1-> ~ \mp | %111
   ges1 | %112
+  R1*2 | %114
+  fis1-> ~ | %115
+  fis1 ~ | %116
+  fis1 ~ | %117
+  fis1 | %118
+  fis'8-. \ff fis-. fis2. | %119
 }

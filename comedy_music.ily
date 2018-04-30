@@ -109,7 +109,7 @@ globalMarks = {
   \tempo "Accel."
   s1*6
   \mark \default %105
-  \tempo "Faster" 2 = 120
+  \tempo "Faster" 2 = 100
   s1*8
   \mark \default %113
   s1*8
@@ -150,9 +150,9 @@ fluteOrnamentedHeadA = {
   R1 |
   r4 d8-.\mf e-. fis-. a-. b-. c-. |
   d1~\startTrillSpan |
-  d8\stopTrillSpan b( c) a( b) g( a) fis( |
+  d8\stopTrillSpan b( c) a( b a g fis) |
   \override Glissando.style = #'zigzag
-  d2.~)\startTrillSpan d4 \stopTrillSpan \glissando |
+  d2.~\startTrillSpan d4 \stopTrillSpan \glissando |
   c'4. b8 a4 g |
   a8-. a-. a4-> r4 g-> |
   a-. r d->\f r |
@@ -191,7 +191,7 @@ svHeadA = {
     d4-. g2-> d4 | c'4.-> b8 a4 g4 | %6
   }
   \tag #'tag {
-    a8-. a-. a4-> r4 g-> | a-. r4 d-^\f r4 | %8
+    a8-. a-. a4-. r4 g-> | a-. r4 d-^\f r4 | %8
   }
 }
 
@@ -415,6 +415,56 @@ svCHeadAlt = {
   }
 }
 
+svLastVamp = {
+  r4 bes8-. bes-. bes4-. bes-. | %121
+  r c-. r d-. | %121
+}
+
+avLastVamp = {
+  r4 g8-. g-. g4-. g-. | %122
+  r aes-. r bes-. | %123
+}
+
+tvLastVamp = {
+  r4 ees8-. ees-. ees4-. ees-. | %121
+  r f-. r f-. | %122
+}
+
+bvLastVamp = {
+  ees4-. r r bes-. | %121
+  ees-. r bes-. r | %122
+}
+
+sOne = {
+  \xNotesOn
+  c4 -\markup \italic "One!" r r2 | %123
+  \xNotesOff
+}
+
+sTwo = {
+  \xNotesOn
+  c4 -\markup \italic "Two!" r r2 | %124
+  \xNotesOff
+}
+
+sThree = {
+  \xNotesOn
+  c4 -\markup \italic "Three!" r %125
+  \xNotesOff
+}
+
+restTwoThree = {
+  R1 | %123
+  \sTwo
+  \sThree
+}
+
+oneTwoThree = {
+  \sOne
+  \sTwo
+  \sThree
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % "Alto" voice music defs  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -442,7 +492,7 @@ avHeadA = {
         r4 d2-> d4-. | r g-. r g-.  | %6
       }
       \tag #'tag {
-        f8-. f-. f4-> r4 g->  | a-. r a-^\f r | %8
+        f8-. f-. f4-. r4 g->  | a-. r a-^\f r | %8
       }
     }
     \tag #'lower {
@@ -453,7 +503,7 @@ avHeadA = {
       r4 b2-> b4-. | r e-. r e-. | %6
       }
       \tag #'tag {
-      c8-. c-. c4-> r4 g-> | a-. r c-^\f r4 | %8
+      c8-. c-. c4-. r4 g-> | a-. r c-^\f r4 | %8
       }
     }
   >>
@@ -880,7 +930,7 @@ tvCHeadAlt = {
 
 bvFanfare = {
   %\varLabel "bvFanfare"
-  R1*2 | r2. g4 | d1\fermata
+  R1*2 | r2 r4 g4 | d2\fermata r2
 }
 
 bvVamp = {
@@ -894,7 +944,7 @@ bvHeadA = {
   g4 \mf r d r |
   \repeat unfold 3 { g4 r d r | } %4
   g4 r d r  | g4 r d r  | %6
-  f8-. f-. f4-> r2 | r2 d'4-^\f r | %8
+  f8-. f-. f4-. r2 | r2 d'4-^\f r | %8
 }
 
 bvHeadB = {
@@ -902,7 +952,7 @@ bvHeadB = {
   g, r r d | g r2. | %2
   b4 r r fis | b r fis2 | %4
   f4 r c r | f r c r | %6
-  a'-.\< a2-> b4 | c-.\! r d-^ r | %8
+  a'-.\< a2-> b4 | c-.\! r d2-> | %8
 }
 
 bvHeadAalt = {
