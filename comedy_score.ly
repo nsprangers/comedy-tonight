@@ -134,7 +134,7 @@ scoreGlobalMarksStaff = \new Staff
       \scoreDoubleBassStaff
     >> % Brass choir
 
-    \scorePianoStaff
+    %\scorePianoStaff
 
     % Percussion
     \scoreTimpaniStaff
@@ -170,7 +170,7 @@ scoreGlobalMarksStaff = \new Staff
 
     indent = 1.5\cm
     short-indent = 0.5\cm
-    %ragged-last = ##t
+    ragged-last = ##f
 
   } % layout
 

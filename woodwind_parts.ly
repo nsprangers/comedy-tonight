@@ -15,10 +15,28 @@ transTo = c
 instNotes = \fluteOneNotes
 \include "inst_bookpart.ily"
 
+instName = "Flute 1"
+transFrom = c
+transTo = c
+instNotes = \fluteOneNotes
+\include "inst_bookpart.ily"
+
 instName = "Flute 2"
 transFrom = c
 transTo = c
 instNotes = \fluteTwoNotes 
+\include "inst_bookpart.ily"
+
+instName = "Flute 2"
+transFrom = c
+transTo = c
+instNotes = \fluteTwoNotes 
+\include "inst_bookpart.ily"
+
+instName = "Oboe"
+transFrom = c
+transTo = c
+instNotes = \oboeNotes 
 \include "inst_bookpart.ily"
 
 instName = "Oboe"
@@ -39,6 +57,18 @@ transTo = c'
 instNotes = \clarinetOneNotes
 \include "inst_bookpart.ily"
 
+instName = "Bb Clarinet 1"
+transFrom = bes
+transTo = c'
+instNotes = \clarinetOneNotes
+\include "inst_bookpart.ily"
+
+instName = "Bb Clarinet 2"
+transFrom = bes
+transTo = c'
+instNotes = \clarinetTwoNotes
+\include "inst_bookpart.ily"
+
 instName = "Bb Clarinet 2"
 transFrom = bes
 transTo = c'
@@ -49,6 +79,18 @@ instName = "Bb Clarinet 3"
 transFrom = bes
 transTo = c'
 instNotes = \clarinetThreeNotes
+\include "inst_bookpart.ily"
+
+instName = "Bb Clarinet 3"
+transFrom = bes
+transTo = c'
+instNotes = \clarinetThreeNotes
+\include "inst_bookpart.ily"
+
+instName = "Bb Bass Clarinet"
+transFrom = bes
+transTo = c''
+instNotes = \bassClarinetNotes
 \include "inst_bookpart.ily"
 
 instName = "Bb Bass Clarinet"

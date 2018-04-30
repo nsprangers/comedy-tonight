@@ -63,13 +63,11 @@ globalMarks = {
   \tempo "Slowing"
   s1*4 %59
   \mark \default %52
-  \textLengthOn
   <> \tempo "Relaxed" 2 = 96
-  \textLengthOff
   %s1*4
-  \skip 1*4
+  \skip 1*8
   %\mark \default %56
-  s1*4
+  %s1*4
   \mark \default %60
   %s1*4 %63
   %\mark \default %64
@@ -78,8 +76,9 @@ globalMarks = {
   \mark \default %69
   s1*8 | %76
   \mark \default %77
-  s1*4 |
-
+  s1*3
+  \tempo "Rit." 
+  s1
   \mark \default %81
   \time 6/8
   \tempo "Stately" 4. = 72
@@ -109,7 +108,7 @@ globalMarks = {
   \tempo "Accel."
   s1*6
   \mark \default %105
-  \tempo "Faster" 2 = 100
+  \tempo "Faster" 2 = 120
   s1*8
   \mark \default %113
   s1*8
@@ -124,11 +123,11 @@ keyChanges = {
   \bar "||" \key bes \major
   s1*12
   %\tag #'keybreaks { \break }
-  \bar "||" \key aes \major
-  s1*9
-  %\tag #'keybreaks { \break }
   \bar "||" \key ees \major
-  s1*8
+  s1*17
+  %\tag #'keybreaks { \break }
+  %\bar "||" \key ees \major
+  %s1*8
   %\tag #'keybreaks { \break }
   \bar "||" \key d \major
   s1*4
@@ -255,9 +254,9 @@ svTransThree = {
 
 svDevOne = {
   %\varLabel "svDevOne"
-  bes8( c) |
+  <> \mf bes8( c) |
   d[( bes c d]) ees[( c d ees]) |
-  f4-. f8-- f,-. r8 f'4-. dis8-- |
+  f4-. f8-- f,-. r8 f'4-. ees8-- |
   e4-. e-. r2 |
 }
 
@@ -280,8 +279,8 @@ svDevTwo = {
         aes bes c des
   }
   \tag #'fourth { 
-        ees8 fes ges |
-    g[ ees8 f g] aes[ f g aes] | 
+        ees8 \> fes ges |
+    g[ \mp ees8 f g] aes[ f g aes] | 
     bes4-. bes8-- bes,-. r bes'4-. aes8-- |
     a4-. a-. r2 |
     R1 |
@@ -308,8 +307,8 @@ svShoutA = {
   %begins on beat 4
   %ends on beat 3
   f8 g |
-  aes g f es f4 es8 ges~ |
-  ges ges ees4 bes
+  aes g f es f4 es8 ges-> ~ |
+  ges ges-- ees4-. bes->
 }
 
 svShoutB = {
@@ -317,8 +316,8 @@ svShoutB = {
   %begins on beat 4
   %ends on beat 3
   f8 g |
-  aes g f es f4 es8 ges~ |
-  ges2.
+  aes g f es f4 es8 ges-> ~ |
+  ges2 r4
 }
 
 svShoutC = {
@@ -337,10 +336,10 @@ svShoutC = {
 
 svTransB = {
   %\varLabel "svTransBOne"
-  a8-. a-. a2-> g4 |
-  a2-> b-> |
-  a8-. a-. a2-> e4 |
-  g2-> e-> |
+  a8-. a-. a2-> g4 | %77
+  a2-> b-> | %78
+  a8-. a-. a2-> r4 %e4 | %79
+  %g2-> e-> | %80
 }
 
 svBHeadAalt = {
@@ -626,7 +625,7 @@ avDevOne = {
   %\varLabel "avDevOne"
   % starts beat 4
   r4 |
-  r d r ees |
+  r d \mf r ees |
   r f r4. ees!8( |
   e4) r4 r2 |
 }
@@ -640,7 +639,7 @@ avDevTwo = {
   % trumpets: chormatic "laugh"
   c8-- \stopped \< \glissando |
   <<
-    { des4-.\! c-. b-. bes-. }
+    { des8-.\! r \glissando c-. r b-. r bes-. r }
     { s8\open s8\stopped s\open s8\stopped s\open s8\stopped s\open s\stopped}
   >>
   a4-.\> \halfopen aes-.\stopped g-.\stopped ges-.\!\stopped |
@@ -687,16 +686,16 @@ avBHeadAalt = {
         %cut time
         \time 2/2
         r4 b-. r d-. |
-        r ees-. ees4.-> d8 |
-        ees4-. f~-> f8 g8 aes4-. |
+        r ees-. \< ees4.-> d8 |
+        ees4-. f~-> f8 g8 aes4-. \! |
       }
       \tag #'lower {
         fis8 |
         %cut time
         \time 2/2
         r4 g-. r a-. |
-        r c-. c4.-> bes8 |
-        c4-. d~-> d8 ees8 f4-. |
+        r c-. \< c4.-> bes8 |
+        c4-. d~-> d8 ees8 f4-. \! |
       }
     >>
   }
@@ -915,12 +914,12 @@ tvCHeadB = {
 
 tvCHeadAlt = {
   \tag #'upper {
-    fes2-> \grace {ees16 fes} ges2-> | %111
-    \grace {fes16 ges} aes2-> \grace { ges16 aes!} a2-> | %112
+    fes2-> \< \grace {ees16 fes} ges2-> | %111
+    \grace {fes16 ges} aes2-> \grace { ges16 aes!} a2-> \! | %112
   }
   \tag #'lower {
-    des2-> \grace {ces16 des} ees2-> |%111
-    \grace {des16 ees} fes2-> \grace {ees16 fes} ges2-> | %112
+    des2-> \< \grace {ces16 des} ees2-> |%111
+    \grace {des16 ees} fes2-> \grace {ees16 fes} ges2-> \! | %112
   }
 }
 

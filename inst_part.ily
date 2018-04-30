@@ -10,7 +10,8 @@ partsMarks = {
   >>
 }
 
-#(set-global-staff-size 17.82)
+%#(set-global-staff-size 17.82)
+#(set-global-staff-size 15.87)
 
 \paper {
   #(set-paper-size "letter")

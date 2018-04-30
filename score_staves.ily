@@ -250,11 +250,11 @@ scoreDoubleBassStaff = \new Staff \with {
   >>
 }
 
+%{
 scorePianoStaff = \new PianoStaff \with {
   instrumentName = "Piano"
   shortInstrumentName = "Pno."
   midiInstrument = "acoustic grand"
-  fontSize = -2
 } {
   <<
     \new Staff = "upper" {
@@ -271,6 +271,7 @@ scorePianoStaff = \new PianoStaff \with {
     }
   >> 
 }
+%}
 
 scoreTimpaniStaff = \new Staff \with {
   instrumentName = "Timpani"
@@ -286,7 +287,7 @@ scoreTimpaniStaff = \new Staff \with {
 scoreMalletPercussionStaff = \new StaffGroup \with { systemStartDelimiter = #'SystemStartBrace }
 <<
   \new Staff \with {
-    instrumentName = "Bells"
+    instrumentName = "Bells & Chimes"
     shortInstrumentName = "Bells"
     midiInstrument = "glockenspiel"
   } {
@@ -297,7 +298,7 @@ scoreMalletPercussionStaff = \new StaffGroup \with { systemStartDelimiter = #'Sy
   }
 
   \new Staff \with {
-    instrumentName = "Xylophone"
+    instrumentName = "Xylophone & Marimba"
     shortInstrumentName = "Xylo."
     midiInstrument = "xylophone"
   } {
@@ -323,6 +324,7 @@ scorePercussionTwoStaff = \new DrumStaff \with {
   instrumentName = "Percussion 2"
   shortInstrumentName = "Perc. 2"
   midiInstrument = "drums"
+  %drumStyleTable = #(alist->hash-table mydrums)
 } { 
   <<
     \keyChanges

@@ -1,82 +1,104 @@
 \version "2.18.2"
 
-\include "woodwinds.ily"
+\include "percussion.ily"
 \include "inst_part.ily"
 
-instName = "Piccolo"
-transFrom = c
-transTo = c,
-instNotes = \piccoloNotes
-\include "inst_bookpart.ily"
+#(set-global-staff-size 20)
 
-instName = "Flute 1"
+instName = "Timpani"
 transFrom = c
 transTo = c
-instNotes = \fluteOneNotes
+instNotes = { \clef bass \timpaniNotes }
 \include "inst_bookpart.ily"
 
-instName = "Flute 2"
+instName = "Bells & Chimes"
 transFrom = c
 transTo = c
-instNotes = \fluteTwoNotes 
+instNotes = { \bellsNotes }
 \include "inst_bookpart.ily"
 
-instName = "Oboe"
+instName = "Xylophone & Marimba"
 transFrom = c
 transTo = c
-instNotes = \oboeNotes 
+instNotes = { \xylophoneNotes }
 \include "inst_bookpart.ily"
 
-instName = "Bassoon"
-transFrom = c
-transTo = c
-instNotes = { \clef bass \bassoonNotes }
-\include "inst_bookpart.ily"
+\bookpart {
+  \header {
+    poet = "Percussion 1"
+  }
+  \score {
+    \new DrumStaff {
+      <<
+      \partsMarks
+      \percussionOneNotes
+      >>
+    }
+  }
+}
 
-instName = "Bb Clarinet 1"
-transFrom = bes
-transTo = c'
-instNotes = \clarinetOneNotes
-\include "inst_bookpart.ily"
+\bookpart {
+  \header {
+    poet = "Percussion 1"
+  }
+  \score {
+    \new DrumStaff {
+      <<
+      \partsMarks
+      \percussionOneNotes
+      >>
+    }
+  }
+}
 
-instName = "Bb Clarinet 2"
-transFrom = bes
-transTo = c'
-instNotes = \clarinetTwoNotes
-\include "inst_bookpart.ily"
+\bookpart {
+  \header {
+    poet = "Percussion 2 (2 players)"
+  }
+  \score {
+    \new DrumStaff {
+      <<
+      \partsMarks
+      \percussionTwoNotes
+      >>
+    }
+  }
+}
 
-instName = "Bb Clarinet 3"
-transFrom = bes
-transTo = c'
-instNotes = \clarinetThreeNotes
-\include "inst_bookpart.ily"
+\bookpart {
+  \header {
+    poet = "Percussion 2 (2 players)"
+  }
+  \score {
+    \new DrumStaff {
+      <<
+      \partsMarks
+      \percussionTwoNotes
+      >>
+    }
+  }
+}
 
-instName = "Bb Bass Clarinet"
-transFrom = bes
-transTo = c''
-instNotes = \bassClarinetNotes
-\include "inst_bookpart.ily"
-
-instName = "Eb Alto Saxophone 1"
-transFrom = ees
-transTo = c'
-instNotes = \altoSaxOneNotes
-\include "inst_bookpart.ily"
-
-instName = "Eb Alto Saxophone 2"
-transFrom = ees
-transTo = c'
-instNotes = \altoSaxTwoNotes
-\include "inst_bookpart.ily"
-
-instName = "Bb Tenor Saxophone"
-transFrom = bes
-transTo = c''
-instNotes = \tenorSaxNotes
-\include "inst_bookpart.ily"
-
-instName = "Eb Baritone Saxophone"
-transFrom = ees
-transTo = c''
-instNotes = \bariSaxNotes
-\include "inst_bookpart.ily"
+%{
+\bookpart {
+  \header {
+    poet = "Piano"
+  }
+  \score {
+    \new PianoStaff {
+      \new Staff = "upper" {
+        <<
+          \keyChanges
+          \pianoRHNotes
+          >>
+      }
+      \new Staff = "lower" {
+        <<
+          \keyChanges
+          { \clef bass \pianoLHNotes }
+        >>
+      }
+    }
+  }
+}
+%}
